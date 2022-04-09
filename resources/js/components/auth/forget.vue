@@ -16,24 +16,13 @@
                                                    placeholder="Entrer votre adresse mail">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword"
-                                                   placeholder="Votre mot de passe">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Se souvenir de moi
-                                                    </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="index.html" class="btn btn-primary btn-block">Se connecter</a>
+                                            <a href="index.html" class="btn btn-primary btn-block">Soumettre</a>
                                         </div>
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <router-link to="forget" class="font-weight-bold small" >Mot de passe oublié!</router-link>
+                                        <router-link to="/" class="font-weight-bold small" >Se connecter!</router-link>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +36,7 @@
 
 <script>
 export default {
-    name: "login"
+    name: "forget"
 }
 </script>
 
