@@ -2009,6 +2009,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    if (_Helpers_User__WEBPACK_IMPORTED_MODULE_0__["default"].loggedIn()) {
+      this.$router.push({
+        name: 'home'
+      });
+    }
+  },
   //name: "login",
   data: function data() {
     return {
@@ -2109,6 +2116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Helpers_User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Helpers/User */ "./resources/js/Helpers/User.js");
 //
 //
 //
@@ -2417,8 +2425,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "home"
+  name: "home",
+  created: function created() {
+    if (!_Helpers_User__WEBPACK_IMPORTED_MODULE_0__["default"].loggedIn()) {
+      this.$router.push({
+        name: '/'
+      });
+    }
+  }
 });
 
 /***/ }),

@@ -48,6 +48,12 @@
 <script type="text/javascript">
 import User from '../../Helpers/User';
 export default {
+    created() {
+        if (User.loggedIn()){
+            this.$router.push({name: 'home'})
+        }
+    },
+
     //name: "login",
     data(){
         return{
