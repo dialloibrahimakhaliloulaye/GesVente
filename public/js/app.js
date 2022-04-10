@@ -2007,7 +2007,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "login"
+  name: "login",
+  data: function data() {
+    return {
+      form: {
+        email: null,
+        password: null
+      }
+    };
+  },
+  methods: {
+    login: function login() {
+      axios.post('/api/auth/login', this.form).then(function (res) {
+        return console.log(res.data);
+      })["catch"](function (error) {
+        return console.log(error.response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -37771,7 +37788,86 @@ var render = function () {
                 _c("div", { staticClass: "login-form" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c(
+                    "form",
+                    {
+                      staticClass: "user",
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.login.apply(null, arguments)
+                        },
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.email,
+                              expression: "form.email",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            id: "exampleInputEmail",
+                            "aria-describedby": "emailHelp",
+                            placeholder: "Entrer votre adresse mail",
+                          },
+                          domProps: { value: _vm.form.email },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "email", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            id: "exampleInputPassword",
+                            placeholder: "Votre mot de passe",
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("hr"),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
@@ -37812,71 +37908,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "user" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "email",
-            id: "exampleInputEmail",
-            "aria-describedby": "emailHelp",
-            placeholder: "Entrer votre adresse mail",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "password",
-            id: "exampleInputPassword",
-            placeholder: "Votre mot de passe",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "div",
-          {
-            staticClass: "custom-control custom-checkbox small",
-            staticStyle: { "line-height": "1.5rem" },
-          },
-          [
-            _c("input", {
-              staticClass: "custom-control-input",
-              attrs: { type: "checkbox", id: "customCheck" },
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "custom-control-label",
-                attrs: { for: "customCheck" },
-              },
-              [
-                _vm._v(
-                  "Se souvenir de moi\n                                                "
-                ),
-              ]
-            ),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary btn-block",
-            attrs: { href: "index.html" },
-          },
-          [_vm._v("Se connecter")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("hr"),
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "div",
+        {
+          staticClass: "custom-control custom-checkbox small",
+          staticStyle: { "line-height": "1.5rem" },
+        },
+        [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "customCheck" },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "customCheck" },
+            },
+            [
+              _vm._v(
+                "Se souvenir de moi\n                                                "
+              ),
+            ]
+          ),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
+        [_vm._v("Se connecter")]
+      ),
     ])
   },
 ]
