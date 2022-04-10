@@ -12,8 +12,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 // Router imported
-
 import {routes} from './routes';
+
+// import User class
+import {User} from './Helpers/User';
 
 const router = new  VueRouter({
     routes,
