@@ -1959,6 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Helpers_User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Helpers/User */ "./resources/js/Helpers/User.js");
 //
 //
 //
@@ -2006,8 +2007,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "login",
+  //name: "login",
   data: function data() {
     return {
       form: {
@@ -2019,7 +2021,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     login: function login() {
       axios.post('/api/auth/login', this.form).then(function (res) {
-        return console.log(res.data);
+        return _Helpers_User__WEBPACK_IMPORTED_MODULE_0__["default"].responseAfterLogin(res);
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
@@ -53263,7 +53265,7 @@ var AppStorage = /*#__PURE__*/function () {
   }, {
     key: "storeUser",
     value: function storeUser(user) {
-      localStorage.setItem('token', user);
+      localStorage.setItem('user', user);
     }
   }, {
     key: "store",

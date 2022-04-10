@@ -45,9 +45,10 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
+import User from '../../Helpers/User';
 export default {
-    name: "login",
+    //name: "login",
     data(){
         return{
             form:{
@@ -59,8 +60,8 @@ export default {
     methods:{
         login(){
             axios.post('/api/auth/login', this.form)
-            .then(res => console.log(res.data))
-            .catch(error => console.log(error.response.data))
+             .then(res => User.responseAfterLogin(res))
+             .catch(error => console.log(error.response.data))
         }
     }
 }
