@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row justify-content-center">
-            <router-link to="" class="btn btn-primary"> Liste des employés </router-link>
+            <router-link to="/employee" class="btn btn-primary"> Liste des employés </router-link>
         </div>
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
