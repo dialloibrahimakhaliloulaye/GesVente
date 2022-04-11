@@ -10,20 +10,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Créer un compte</h1>
                                     </div>
-                                    <form>
+                                    <form class="user" @submit.prevent="signup">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Nom complet">
+                                            <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Nom complet"
+                                            v-model="form.name">
+                                            <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                         </div>
                                         <div class="form-group">
                                             <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                                                   placeholder="Adresse mail">
+                                                   placeholder="Adresse mail" v-model="form.email">
+                                            <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Mot de passe">
+                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Mot de passe"
+                                                   v-model="form.password">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="exampleInputPasswordRepeat"
-                                                   placeholder="Confirmation mot de passe">
+                                                   placeholder="Confirmation mot de passe" v-model="form.password_confirmation">
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Créer</button>
@@ -48,7 +52,39 @@
 
 <script>
 export default {
-    name: "register"
+    name: "register",
+    created() {
+        if (User.loggedIn()){
+            this.$router.push({name: 'home'})
+        }
+    },
+
+    //name: "login",
+    data(){
+        return{
+            form:{
+                name: null,
+                email: null,
+                password: null,
+                confirm_password: null
+            },
+            errors: {}
+        }
+    },
+    methods:{
+        signup(){
+            axios.post('/api/auth/signup', this.form)
+                .then(res => {
+                    User.responseAfterLogin(res)
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Compte crée avec succès'
+                    })
+                    this.$router.push({name: 'home'})
+                })
+                .catch(error => this.errors = error.response.data.errors)
+        }
+    }
 }
 </script>
 

@@ -48,7 +48,6 @@
 </template>
 
 <script type="text/javascript">
-//import User from '../../Helpers/User';
 export default {
     created() {
         if (User.loggedIn()){
