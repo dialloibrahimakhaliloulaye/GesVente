@@ -2304,26 +2304,34 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         name: null,
         email: null,
-        password: null,
-        confirm_password: null
+        phone: null,
+        sallery: null,
+        address: null,
+        photo: null,
+        nid: null
       },
       errors: {}
     };
-  } // methods:{
-  //     signup(){
-  //         axios.post('/api/auth/signup', this.form)
-  //             .then(res => {
-  //                 User.responseAfterLogin(res)
-  //                 Toast.fire({
-  //                     icon: 'success',
-  //                     title: 'Compte crée avec succès'
-  //                 })
-  //                 this.$router.push({name: 'home'})
-  //             })
-  //             .catch(error => this.errors = error.response.data.errors)
-  //     }
-  // }
+  },
+  methods: {
+    employeeInsert: function employeeInsert() {
+      var _this = this;
 
+      axios.post('/api/auth/signup', this.form).then(function (res) {
+        User.responseAfterLogin(res);
+        Toast.fire({
+          icon: 'success',
+          title: 'Compte crée avec succès'
+        });
+
+        _this.$router.push({
+          name: 'home'
+        });
+      })["catch"](function (error) {
+        return _this.errors = error.response.data.errors;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -45390,10 +45398,11 @@ var render = function () {
                     "form",
                     {
                       staticClass: "user",
+                      attrs: { enctype: "multipart/form-data" },
                       on: {
                         submit: function ($event) {
                           $event.preventDefault()
-                          return _vm.signup.apply(null, arguments)
+                          return _vm.employeeInsert.apply(null, arguments)
                         },
                       },
                     },
@@ -45446,8 +45455,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.email,
+                                  expression: "form.email",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45456,7 +45465,7 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "email",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.email },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -45464,17 +45473,17 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "name",
+                                    "email",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.email
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " + _vm._s(_vm.errors.email[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -45490,8 +45499,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.address,
+                                  expression: "form.address",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45500,7 +45509,7 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "Adresse",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.address },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -45508,17 +45517,17 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "name",
+                                    "address",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.address
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " + _vm._s(_vm.errors.address[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -45530,8 +45539,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.phone,
+                                  expression: "form.phone",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45540,7 +45549,7 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "Téléphone",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.phone },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -45548,17 +45557,17 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "name",
+                                    "phone",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.phone
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " + _vm._s(_vm.errors.phone[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -45574,8 +45583,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.sallery,
+                                  expression: "form.sallery",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45584,7 +45593,7 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "Salaire",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.sallery },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -45592,17 +45601,17 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "name",
+                                    "sallery",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.sallery
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " + _vm._s(_vm.errors.sallery[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -45614,8 +45623,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.joining_date,
+                                  expression: "form.joining_date",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45624,7 +45633,7 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "Date d'embauche",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.joining_date },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -45632,17 +45641,19 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "name",
+                                    "joining_date",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.joining_date
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " +
+                                      _vm._s(_vm.errors.joining_date[0]) +
+                                      " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -45658,8 +45669,8 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.name,
-                                  expression: "form.name",
+                                  value: _vm.form.nid,
+                                  expression: "form.nid",
                                 },
                               ],
                               staticClass: "form-control",
@@ -45668,26 +45679,20 @@ var render = function () {
                                 id: "exampleInputFirstName",
                                 placeholder: "Nid",
                               },
-                              domProps: { value: _vm.form.name },
+                              domProps: { value: _vm.form.nid },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
                                     return
                                   }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "name",
-                                    $event.target.value
-                                  )
+                                  _vm.$set(_vm.form, "nid", $event.target.value)
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.nid
                               ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
-                                  ),
+                                  _vm._v(" " + _vm._s(_vm.errors.nid[0]) + " "),
                                 ])
                               : _vm._e(),
                           ]),
@@ -45711,10 +45716,10 @@ var render = function () {
                               [_vm._v("Choisir un fichier")]
                             ),
                             _vm._v(" "),
-                            _vm.errors.name
+                            _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.name[0]) + " "
+                                    " " + _vm._s(_vm.errors.photo[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
