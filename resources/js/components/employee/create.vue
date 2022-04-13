@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                        <input type="file" class="custom-file-input" id="customFile">
+                                                        <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected">
                                                         <label class="custom-file-label" for="customFile">Choisir un fichier</label>
                                                     <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small>
                                                 </div>
@@ -93,7 +93,6 @@
 
 <script>
 export default {
-    name: "register",
     created() {
         if (!User.loggedIn()){
             this.$router.push({name: '/'})
@@ -116,6 +115,12 @@ export default {
         }
     },
     methods:{
+        onFileSelected(event){
+            let file = event.target.files[0];
+            if (file.size > 5242880){
+                Notification.image_validation()
+            }else console.log(event)
+        },
         employeeInsert(){
             axios.post('/api/auth/signup', this.form)
                 .then(res => {

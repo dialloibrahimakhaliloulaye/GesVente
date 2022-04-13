@@ -2290,7 +2290,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "register",
   created: function created() {
     if (!User.loggedIn()) {
       this.$router.push({
@@ -2314,6 +2313,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    onFileSelected: function onFileSelected(event) {
+      var file = event.target.files[0];
+
+      if (file.size > 5242880) {
+        Notification.image_validation();
+      } else console.log(event);
+    },
     employeeInsert: function employeeInsert() {
       var _this = this;
 
@@ -45758,6 +45764,7 @@ var render = function () {
                             _c("input", {
                               staticClass: "custom-file-input",
                               attrs: { type: "file", id: "customFile" },
+                              on: { change: _vm.onFileSelected },
                             }),
                             _vm._v(" "),
                             _c(
@@ -62047,6 +62054,16 @@ var Notification = /*#__PURE__*/function () {
         layout: 'topRight',
         text: 'Attention !!!',
         timeout: 2000
+      }).show();
+    }
+  }, {
+    key: "image_validation",
+    value: function image_validation() {
+      new Noty({
+        type: 'error',
+        layout: 'topRight',
+        text: 'La taille de l\'image doit etre inférieur à 5M !!!',
+        timeout: 3000
       }).show();
     }
   }]);
