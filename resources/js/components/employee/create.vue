@@ -73,7 +73,7 @@
                                                     <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <img src="form.photo" style="width: 50px; height: 50px" alt="">
+                                                    <img :src="form.photo" style="width: 50px; height: 50px" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -119,19 +119,22 @@ export default {
             let file = event.target.files[0];
             if (file.size > 5242880){
                 Notification.image_validation()
-            }else console.log(event)
+            }else {
+                let reader = new FileReader();
+                reader.onload = event => {
+                    this.form.photo = event.target.result
+                    console.log(event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
         },
         employeeInsert(){
-            axios.post('/api/auth/signup', this.form)
-                .then(res => {
-                    User.responseAfterLogin(res)
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Compte crée avec succès'
-                    })
-                    this.$router.push({name: 'home'})
+            axios.post('/api/employee',this.form)
+                .then(() => {
+                    this.$router.push({ name: 'employee'})
+                    Notification.success()
                 })
-                .catch(error => this.errors = error.response.data.errors)
+                .catch(error =>this.errors = error.response.data.errors)
         }
     }
 }
