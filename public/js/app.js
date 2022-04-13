@@ -2458,36 +2458,34 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this2.employees = data;
       })["catch"]();
-    } // deleteEmployee(id){
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //     }).then((result) => {
-    //         if (result.value) {
-    //             axios.delete('/api/employee/'+id)
-    //                 .then(() => {
-    //                     this.employees = this.employees.filter(employee => {
-    //                         return employee.id != id
-    //                     })
-    //                 })
-    //                 .catch(() => {
-    //                     this.$router.push({name: 'employee'})
-    //                 })
-    //             Swal.fire(
-    //                 'Deleted!',
-    //                 'Your file has been deleted.',
-    //                 'success'
-    //             )
-    //         }
-    //     })
-    //
-    // }
+    },
+    deleteEmployee: function deleteEmployee(id) {
+      var _this3 = this;
 
+      Swal.fire({
+        title: 'Etes-vous sure?',
+        text: "Cette action n'est pas reversible!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, Suprimer !',
+        cancelButtonText: "Retour"
+      }).then(function (result) {
+        if (result.value) {
+          axios["delete"]('/api/employee/' + id).then(function () {
+            _this3.employees = _this3.employees.filter(function (employee) {
+              return employee.id != id;
+            });
+          })["catch"](function () {
+            _this3.$router.push({
+              name: 'employee'
+            });
+          });
+          Swal.fire('Suprimé!', 'Effectué avec succès', 'success');
+        }
+      });
+    }
   }
 });
 
