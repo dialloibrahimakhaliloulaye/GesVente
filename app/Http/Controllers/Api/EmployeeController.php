@@ -37,7 +37,24 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:employees|max:255',
+            'phone' => 'required|unique:employees',
+            'address' => 'required',
+
+        ]);
+
+        if ($request->photo){
+            $position = strpos($request->photo, ';');
+            $sub = substr($request->photo, 0, $position);
+            $ext = explode('/', $sub)[1];
+
+            $name = time().".".$ext;
+            $img = Image::make($request->photo)->resize(240,200);
+            $upload_path = 'backend/employee/';
+            $image_url = $upload_path.$name;
+            $img->save($image_url);
+        }
     }
 
     /**
