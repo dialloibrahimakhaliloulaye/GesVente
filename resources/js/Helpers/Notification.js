@@ -4,7 +4,7 @@
          type: 'success',
          layout: 'topRight',
          text: 'Effectué avec succès',
-         timeout: 2000,
+         timeout: 3000,
      }).show();
     }
 
@@ -13,7 +13,7 @@
              type: 'alert',
              layout: 'topRight',
              text: 'Etes vous sure',
-             timeout: 2000,
+             timeout: 3000,
          }).show();
      }
 
@@ -22,7 +22,7 @@
              type: 'alert',
              layout: 'topRight',
              text: 'Error !!!',
-             timeout: 2000,
+             timeout: 3000,
          }).show();
      }
 
@@ -31,7 +31,7 @@
              type: 'warning',
              layout: 'topRight',
              text: 'Attention !!!',
-             timeout: 2000,
+             timeout: 3000,
          }).show();
      }
 
