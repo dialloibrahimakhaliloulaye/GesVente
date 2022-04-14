@@ -12,6 +12,11 @@ let storeemployee = require('./components/employee/create.vue').default;
 let employee = require('./components/employee/index.vue').default;
 let editemployee = require('./components/employee/edit.vue').default;
 
+// Supplier Component
+let storesuplier = require('./components/suplier/create.vue').default;
+let suplier = require('./components/suplier/index.vue').default;
+let editsuplier = require('./components/suplier/edit.vue').default;
+
 export const routes = [
     { path: '/', component: login, name: '/' },
     { path: '/register', component: register, name: 'register' },
@@ -23,4 +28,9 @@ export const routes = [
     { path: '/store-employee', component: storeemployee, name: 'store-employee' },
     { path: '/employee', component: employee, name: 'employee' },
     { path: '/edit-employee/:id', component: editemployee, name:'edit-employee'},
+
+    // Supplier Routes
+    { path: '/store-suplier', component: storesuplier, name:'store-suplier'},
+    { path: '/suplier', component: suplier, name:'suplier'},
+    { path: '/edit-suplier/:id', component: editsuplier, name:'edit-suplier'},
 ]
