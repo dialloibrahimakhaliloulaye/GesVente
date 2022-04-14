@@ -9,7 +9,7 @@
         <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="rechercher ici">
         <br>
         <div class="row">
-            <div class="col-lg-12 mb-4">
+            <div class="col-lg-8 mb-5">
                 <!-- Simple Tables -->
                 <div class="card">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
