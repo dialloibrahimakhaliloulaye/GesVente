@@ -22,7 +22,7 @@
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="email"
+                                                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Email"
                                                            v-model="form.email">
                                                     <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
                                                 </div>

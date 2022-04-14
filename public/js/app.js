@@ -2467,27 +2467,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var _this = this;
@@ -2532,7 +2511,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var file = event.target.files[0];
 
-      if (file.size > 1048770) {
+      if (file.size > 5242880) {
         Notification.image_validation();
       } else {
         var reader = new FileReader();
@@ -46477,7 +46456,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "email",
+                                placeholder: "Email",
                               },
                               domProps: { value: _vm.form.email },
                               on: {
@@ -46858,7 +46837,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Full Name",
+                                placeholder: "Nom complet",
                               },
                               domProps: { value: _vm.form.name },
                               on: {
@@ -46896,9 +46875,9 @@ var render = function () {
                               ],
                               staticClass: "form-control",
                               attrs: {
-                                type: "email",
+                                type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Email",
+                                placeholder: "Email",
                               },
                               domProps: { value: _vm.form.email },
                               on: {
@@ -46942,7 +46921,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Address",
+                                placeholder: "Adresse",
                               },
                               domProps: { value: _vm.form.address },
                               on: {
@@ -46974,6 +46953,50 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
+                                  value: _vm.form.phone,
+                                  expression: "form.phone",
+                                },
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                id: "exampleInputFirstName",
+                                placeholder: "Téléphone",
+                              },
+                              domProps: { value: _vm.form.phone },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.form,
+                                    "phone",
+                                    $event.target.value
+                                  )
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.phone
+                              ? _c("small", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    " " + _vm._s(_vm.errors.phone[0]) + " "
+                                  ),
+                                ])
+                              : _vm._e(),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "form-row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
                                   value: _vm.form.sallery,
                                   expression: "form.sallery",
                                 },
@@ -46982,7 +47005,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Sallery",
+                                placeholder: "Salaire",
                               },
                               domProps: { value: _vm.form.sallery },
                               on: {
@@ -47007,11 +47030,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                           ]),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
+                          _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
                               directives: [
@@ -47026,7 +47045,7 @@ var render = function () {
                               attrs: {
                                 type: "date",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Joining Date",
+                                placeholder: "Date d'embauche",
                               },
                               domProps: { value: _vm.form.joining_date },
                               on: {
@@ -47053,7 +47072,11 @@ var render = function () {
                                 ])
                               : _vm._e(),
                           ]),
-                          _vm._v(" "),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
                               directives: [
@@ -47068,7 +47091,7 @@ var render = function () {
                               attrs: {
                                 type: "text",
                                 id: "exampleInputFirstName",
-                                placeholder: "Enter Your Nid",
+                                placeholder: "Nid",
                               },
                               domProps: { value: _vm.form.nid },
                               on: {
@@ -47094,56 +47117,19 @@ var render = function () {
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
                             _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.phone,
-                                  expression: "form.phone",
-                                },
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "text",
-                                id: "exampleInputFirstName",
-                                placeholder: "Enter Your phone Number",
-                              },
-                              domProps: { value: _vm.form.phone },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "phone",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.phone
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.phone[0]) + " "
-                                  ),
-                                ])
-                              : _vm._e(),
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "form-row" }, [
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("input", {
                               staticClass: "custom-file-input",
                               attrs: { type: "file", id: "customFile" },
                               on: { change: _vm.onFileSelected },
                             }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-file-label",
+                                attrs: { for: "customFile" },
+                              },
+                              [_vm._v("Choisir un fichier")]
+                            ),
                             _vm._v(" "),
                             _vm.errors.photo
                               ? _c("small", { staticClass: "text-danger" }, [
@@ -47152,21 +47138,12 @@ var render = function () {
                                   ),
                                 ])
                               : _vm._e(),
-                            _vm._v(" "),
-                            _c(
-                              "label",
-                              {
-                                staticClass: "custom-file-label",
-                                attrs: { for: "customFile" },
-                              },
-                              [_vm._v("Choose file")]
-                            ),
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
                             _c("img", {
-                              staticStyle: { height: "40px", width: "40px" },
-                              attrs: { src: _vm.form.photo },
+                              staticStyle: { width: "50px", height: "50px" },
+                              attrs: { src: _vm.form.photo, alt: "" },
                             }),
                           ]),
                         ]),
