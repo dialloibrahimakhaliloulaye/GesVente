@@ -4,7 +4,7 @@
 
     <div>
         <div class="row">
-            <router-link to="/supplier" class="btn btn-primary">LIste des fournisseurs </router-link>
+            <router-link to="/suplier" class="btn btn-primary">LIste des fournisseurs </router-link>
 
         </div>
         <div class="row justify-content-center">
@@ -18,7 +18,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Ajouter un fournisseur</h1>
                                     </div>
 
-                                    <form class="user" @submit.prevent="supplierInsert" enctype="multipart/form-data">
+                                    <form class="user" @submit.prevent="suplierInsert" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
@@ -120,7 +120,7 @@ export default {
     methods:{
         onFileSelected(event){
             let file = event.target.files[0];
-            if (file.size > 1048770) {
+            if (file.size > 5242880) {
                 Notification.image_validation()
             }else{
                 let reader = new FileReader();
@@ -132,10 +132,10 @@ export default {
             }
 
         },
-        supplierInsert(){
-            axios.post('/api/supplier',this.form)
+        suplierInsert(){
+            axios.post('/api/suplier',this.form)
                 .then(() => {
-                    this.$router.push({ name: 'supplier'})
+                    this.$router.push({ name: 'suplier'})
                     Notification.success()
                 })
                 .catch(error =>this.errors = error.response.data.errors)
