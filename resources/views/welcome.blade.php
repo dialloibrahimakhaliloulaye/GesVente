@@ -36,7 +36,7 @@
         </li>
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
-            Features
+            Fonctionnalités
         </div>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
@@ -87,6 +87,19 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <router-link class="collapse-item" to="/store-product">Ajouter un produit</router-link>
                     <router-link class="collapse-item" to="/product">Liste des produits</router-link>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap4"
+               aria-expanded="true" aria-controls="collapseBootstrap4">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Dépenses</span>
+            </a>
+            <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link class="collapse-item" to="/store-expense">Ajouter une dépense</router-link>
+                    <router-link class="collapse-item" to="/expense">Liste des dépenses</router-link>
                 </div>
             </div>
         </li>
