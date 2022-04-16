@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="img/logo/logo.png" rel="icon">
-    <title>RuangAdmin - Dashboard</title>
+    <title>Admin-Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
@@ -26,7 +26,7 @@
             <div class="sidebar-brand-icon">
                 <img src="{{asset('backend/img/logo/logo2.png')}}">
             </div>
-            <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+            <div class="sidebar-brand-text mx-3">Modji Néné</div>
         </a>
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
@@ -34,10 +34,16 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tableau de bord</span></router-link>
         </li>
+
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Fonctionnalités
         </div>
+        <li class="nav-item active">
+            <router-link class="nav-link" to="/home">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Point de vente</span></router-link>
+        </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                aria-expanded="true" aria-controls="collapseBootstrap">
@@ -104,6 +110,19 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap44"
+               aria-expanded="true" aria-controls="collapseBootstrap44">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Client</span>
+            </a>
+            <div id="collapseBootstrap44" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <router-link class="collapse-item" to="/store-customer">Ajouter un client</router-link>
+                    <router-link class="collapse-item" to="/customer">Liste des clients</router-link>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
                aria-expanded="true" aria-controls="collapseBootstrap5">
                 <i class="far fa-fw fa-window-maximize"></i>
@@ -122,6 +141,19 @@
                 <i class="fab fa-fw fa-wpforms"></i>
                 <span>Stock</span>
             </router-link>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+               aria-controls="collapseTable">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Rapports</span>
+            </a>
+            <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="simple-tables.html">Rapport 1</a>
+                    <a class="collapse-item" href="datatables.html">Rapport 2</a>
+                </div>
+            </div>
         </li>
     </ul>
     <!-- Sidebar -->
