@@ -112,7 +112,7 @@
             <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <router-link class="collapse-item" to="/given-salary">Ajouter un salaire</router-link>
-                    <router-link class="collapse-item" to="/salary">Liste des Salariés</router-link>
+                    <router-link class="collapse-item" to="/salary">Liste des Salaires</router-link>
                 </div>
             </div>
         </li>

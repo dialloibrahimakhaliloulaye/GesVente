@@ -29,4 +29,22 @@ class SalaryController extends Controller
         }
 
     }
+
+    public function AllSalary()
+    {
+        $salary = DB::table('salaries')->select('salary_month')->groupBy('salary_month')->get();
+        return response()->json($salary);
+    }
+
+    public function ViewSalary($id)
+    {
+        $month = $id;
+        $view = DB::table('salaries')
+            ->join('employees','salaries.employee_id','employees.id')
+            ->select('employees.name','salaries.*')
+            ->where('salaries.salary_month',$month)
+            ->get();
+        return response()->json($view);
+
+    }
 }
