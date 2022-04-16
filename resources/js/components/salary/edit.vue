@@ -3,7 +3,7 @@
 
     <div>
         <div class="row">
-            <router-link to="/salary" class="btn btn-primary">Retourner </router-link>
+            <router-link to="/salary" class="btn btn-primary">Retour </router-link>
         </div>
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12 col-md-12">
@@ -20,12 +20,12 @@
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlSelect1"><b>Nom complet</b></label>
-                                                    <input type="text" class="form-control" id="exampleInputFirstName" v-model="form.name">
+                                                    <input type="text" class="form-control" disabled="disabled" id="exampleInputFirstName" v-model="form.name">
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlSelect1"><b>Email</b></label>
-                                                    <input type="email" class="form-control" id="exampleInputFirstName" v-model="form.email">
+                                                    <input type="email" class="form-control" disabled="disabled" id="exampleInputFirstName" v-model="form.email">
                                                     <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
                                                 </div>
                                             </div>

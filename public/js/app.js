@@ -4789,21 +4789,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -53869,7 +53854,7 @@ var render = function () {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/salary" } },
-          [_vm._v("Retourner ")]
+          [_vm._v("Retour ")]
         ),
       ],
       1
@@ -53913,6 +53898,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
+                                disabled: "disabled",
                                 id: "exampleInputFirstName",
                               },
                               domProps: { value: _vm.form.name },
@@ -53954,6 +53940,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "email",
+                                disabled: "disabled",
                                 id: "exampleInputFirstName",
                               },
                               domProps: { value: _vm.form.email },
@@ -54405,7 +54392,7 @@ var render = function () {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/salary" } },
-          [_vm._v("Go Back")]
+          [_vm._v("Retour")]
         ),
       ],
       1
@@ -54424,7 +54411,7 @@ var render = function () {
       ],
       staticClass: "form-control",
       staticStyle: { width: "300px" },
-      attrs: { type: "text", placeholder: "Search Here" },
+      attrs: { type: "text", placeholder: "rechercher ici" },
       domProps: { value: _vm.searchTerm },
       on: {
         input: function ($event) {
@@ -54476,7 +54463,7 @@ var render = function () {
                                 },
                               },
                             },
-                            [_vm._v("Edit Salary")]
+                            [_vm._v("Editer")]
                           ),
                         ],
                         1
@@ -54508,7 +54495,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employee Salary Details"),
+          _vm._v("Details des salaires des employés"),
         ]),
       ]
     )
@@ -54519,13 +54506,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Nom")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Month")]),
+        _c("th", [_vm._v("Mois")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount")]),
+        _c("th", [_vm._v("Somme (FCFA)")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Date")]),
+        _c("th", [_vm._v("Date paiement")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")]),
       ]),
