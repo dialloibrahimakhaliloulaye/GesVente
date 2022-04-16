@@ -116,6 +116,13 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+            <router-link class="nav-link" to="/stock">
+                <i class="fab fa-fw fa-wpforms"></i>
+                <span>Stock</span>
+            </router-link>
+        </li>
     </ul>
     <!-- Sidebar -->
     </nav>
