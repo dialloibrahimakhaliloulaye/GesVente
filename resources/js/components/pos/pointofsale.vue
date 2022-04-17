@@ -36,18 +36,43 @@
                             <h6 class="m-0 font-weight-bold text-primary">Products Sold</h6>
 
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch" :key="product.id">
-                                    <div class="card" style="width: 8.5rem;">
-                                        <img :src="product.image" id="em_photo" class="card-img-top">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ product.product_name }}</h5>
+                    <!--  Categorie wise product-->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                   aria-controls="home" aria-selected="true">Tous les produits</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Profile</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="card-body">
+                                    <input type="text" v-model="searchTerm" class="form-control" style="width: 550px;"
+                                           placeholder="rechercher ici">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch" :key="product.id">
+                                            <a href="">
+                                                <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
+                                                    <img :src="product.image" id="em_photo" class="card-img-top">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">{{ product.product_name }}</h6>
+                                                        <span v-if="product.product_quantity  >= 1 " class="badge badge-success">
+                                                En stock ({{ product.product_quantity }})</span>
+                                                        <span v-else=" " class="badge badge-danger">Stock fini </span>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                         </div>
+                        <!--    Categorie wise product end -->
 
                     </div>
                 </div>
@@ -101,9 +126,9 @@ export default {
 </script>
 
 
-<style type="text/css">
+<style type="text/css" scoped>
 #em_photo{
-    height: 40px;
-    width: 40px;
+    height: 100px;
+    width: 135px;
 }
 </style>
