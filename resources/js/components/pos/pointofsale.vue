@@ -63,8 +63,7 @@
                                 <div class="form-group">
                                     <label>Nom client</label>
                                     <select name="" class="form-control" v-model="customer_id">
-                                        <option value="">test</option>
-                                        <option value="">toto</option>
+                                        <option value="" v-for="customer in customers">{{customer.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -180,6 +179,7 @@ export default {
     created() {
         this.allProduct();
         this.allCategory();
+        this.allCustomer();
     },
     data() {
         return {
@@ -187,7 +187,9 @@ export default {
             categories: '',
             getproducts: [],
             searchTerm: '',
-            getsearchTerm: ''
+            getsearchTerm: '',
+            customers: '',
+            errors: ''
         }
     },
     computed: {
@@ -213,6 +215,11 @@ export default {
             axios.get('/api/category/')
                 .then(({data}) => (this.categories = data))
                 .catch()
+        },
+        allCustomer() {
+            axios.get('/api/customer/')
+                .then(({data}) => (this.customers = data))
+                .catch(console.log('error'))
         },
         subProduct(id) {
             axios.get('/api/getting/product/' + id)
