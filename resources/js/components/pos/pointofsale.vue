@@ -115,14 +115,14 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch"
                                              :key="product.id">
-                                            <a href="">
+                                            <a class="btn-btn-sm" @click.prevent="AddToCart(product.id)">
                                                 <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
                                                     <img :src="product.image" id="em_photo" class="card-img-top">
                                                     <div class="card-body">
                                                         <h6 class="card-title">{{ product.product_name }}</h6>
                                                         <span v-if="product.product_quantity  >= 1 "
                                                               class="badge badge-success">
-                                                En stock ({{ product.product_quantity }})</span>
+                                                    En stock ({{ product.product_quantity }})</span>
                                                         <span v-else=" " class="badge badge-danger">Stock fini </span>
                                                     </div>
                                                 </div>
@@ -206,6 +206,13 @@ export default {
     },
 
     methods: {
+        AddToCart(id){
+            axios.get('/api/addToCart/'+id)
+                .then(() => {
+                    Notification.cart_success()
+                })
+                .catch()
+        },
         allProduct() {
             axios.get('/api/product/')
                 .then(({data}) => (this.products = data))
