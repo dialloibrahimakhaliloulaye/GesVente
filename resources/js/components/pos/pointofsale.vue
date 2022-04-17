@@ -33,7 +33,7 @@
                 <div class="col-xl-7 col-lg-7">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Products Sold</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Liste compléte des produits</h6>
 
                         </div>
                     <!--  Categorie wise product-->
@@ -42,9 +42,9 @@
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                                    aria-controls="home" aria-selected="true">Tous les produits</a>
                             </li>
-                            <li class="nav-item" role="presentation">
+                            <li class="nav-item" role="presentation" v-for="category in categories" :key="category.id">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                   aria-controls="profile" aria-selected="false">Profile</a>
+                                   aria-controls="profile" aria-selected="false" @click="subProduct(category.id)">{{ category.category_name }}</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -69,8 +69,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <input type="text" v-model="getsearchTerm" class="form-control" style="width: 550px;"
+                                       placeholder="rechercher ici">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="getproduct in getfiltersearch" :key="getproduct.id">
+                                        <a href="">
+                                            <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
+                                                <img :src="getproduct.image" id="em_photo" class="card-img-top">
+                                                <div class="card-body">
+                                                    <h6 class="card-title">{{ getproduct.product_name }}</h6>
+                                                    <span v-if="getproduct.product_quantity  >= 1 " class="badge badge-success">
+                                                En stock ({{ getproduct.product_quantity }})</span>
+                                                    <span v-else=" " class="badge badge-danger">Stock fini </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!--    Categorie wise product end -->
 
@@ -97,11 +114,15 @@ export default {
     },
     created(){
         this.allProduct();
+        this.allCategory();
     },
     data(){
         return{
             products:[],
-            searchTerm:''
+            categories:'',
+            getproducts:[],
+            searchTerm:'',
+            getsearchTerm:''
         }
     },
     computed:{
@@ -109,7 +130,12 @@ export default {
             return this.products.filter(product => {
                 return product.product_name.match(this.searchTerm)
             })
-        }
+        },
+        getfiltersearch(){
+            return this.getproducts.filter(getproduct => {
+                return getproduct.product_name.match(this.getsearchTerm)
+            })
+        },
     },
 
     methods:{
@@ -118,8 +144,17 @@ export default {
                 .then(({data}) => (this.products = data))
                 .catch()
         },
-
-    },
+        allCategory(){
+            axios.get('/api/category/')
+                .then(({data}) => (this.categories = data))
+                .catch()
+        },
+        subProduct(id){
+            axios.get('/api/getting/product/'+id)
+                .then(({data}) => (this.getproducts = data))
+                .catch()
+        }
+    }
 
 
 }
