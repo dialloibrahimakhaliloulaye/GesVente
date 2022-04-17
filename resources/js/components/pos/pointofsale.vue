@@ -1,5 +1,3 @@
-
-
 <template>
 
     <div>
@@ -19,13 +17,75 @@
                 <div class="col-xl-5 col-lg-5">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Monthly Recap Report</h6>
-
+                            <h6 class="m-0 font-weight-bold text-primary">Ajouter des frais</h6>
+                            <a href="" class="btn btn-sm btn-primary">Ajouter un client</a>
                         </div>
-                        <div class="card-body">
-                            <div class="chart-area">
-                                hkdhkuonnbh
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Qté</th>
+                                    <th>P. U</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="#">Nom</a></td>
+                                    <td>Qté</td>
+                                    <td>P U</td>
+                                    <td>P U</td>
+                                    <td><a href="#" class="btn btn-sm btn-primary">X</a></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Qté total : <strong>57</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    S. Total : <strong>57 FCFA</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Vat : <strong>35 %</strong>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Total : <strong>57</strong>
+                                </li>
+                            </ul>
+                            <br>
+                            <form action="">
+                                <div class="form-group">
+                                    <label>Nom client</label>
+                                    <select name="" class="form-control" v-model="customer_id">
+                                        <option value="">test</option>
+                                        <option value="">toto</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Montant rémis</label>
+                                    <input type="text" class="form-control" required v-model="pay">
+                                </div>
+                                <div class="form-group">
+                                    <label>Montant restant à payer</label>
+                                    <input type="text" class="form-control" disabled required v-model="due">
+                                </div>
+                                <div class="form-group">
+                                    <label>Payer par</label>
+                                    <select name="" class="form-control" v-model="customer_id">
+                                        <option value="HandCash">Cash maintenant</option>
+                                        <option value="Reception">à la reception</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <buton type="submit" class="btn btn-success">Soumettre</buton>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -36,7 +96,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Liste compléte des produits</h6>
 
                         </div>
-                    <!--  Categorie wise product-->
+                        <!--  Categorie wise product-->
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -44,7 +104,8 @@
                             </li>
                             <li class="nav-item" role="presentation" v-for="category in categories" :key="category.id">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                   aria-controls="profile" aria-selected="false" @click="subProduct(category.id)">{{ category.category_name }}</a>
+                                   aria-controls="profile" aria-selected="false"
+                                   @click="subProduct(category.id)">{{ category.category_name }}</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -53,13 +114,15 @@
                                     <input type="text" v-model="searchTerm" class="form-control" style="width: 550px;"
                                            placeholder="rechercher ici">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch" :key="product.id">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="product in filtersearch"
+                                             :key="product.id">
                                             <a href="">
                                                 <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
                                                     <img :src="product.image" id="em_photo" class="card-img-top">
                                                     <div class="card-body">
                                                         <h6 class="card-title">{{ product.product_name }}</h6>
-                                                        <span v-if="product.product_quantity  >= 1 " class="badge badge-success">
+                                                        <span v-if="product.product_quantity  >= 1 "
+                                                              class="badge badge-success">
                                                 En stock ({{ product.product_quantity }})</span>
                                                         <span v-else=" " class="badge badge-danger">Stock fini </span>
                                                     </div>
@@ -73,13 +136,15 @@
                                 <input type="text" v-model="getsearchTerm" class="form-control" style="width: 550px;"
                                        placeholder="rechercher ici">
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="getproduct in getfiltersearch" :key="getproduct.id">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="getproduct in getfiltersearch"
+                                         :key="getproduct.id">
                                         <a href="">
                                             <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
                                                 <img :src="getproduct.image" id="em_photo" class="card-img-top">
                                                 <div class="card-body">
                                                     <h6 class="card-title">{{ getproduct.product_name }}</h6>
-                                                    <span v-if="getproduct.product_quantity  >= 1 " class="badge badge-success">
+                                                    <span v-if="getproduct.product_quantity  >= 1 "
+                                                          class="badge badge-success">
                                                 En stock ({{ getproduct.product_quantity }})</span>
                                                     <span v-else=" " class="badge badge-danger">Stock fini </span>
                                                 </div>
@@ -107,50 +172,50 @@
 <script type="text/javascript">
 
 export default {
-    created(){
+    created() {
         if (!User.loggedIn()) {
             this.$router.push({name: '/'})
         }
     },
-    created(){
+    created() {
         this.allProduct();
         this.allCategory();
     },
-    data(){
-        return{
-            products:[],
-            categories:'',
-            getproducts:[],
-            searchTerm:'',
-            getsearchTerm:''
+    data() {
+        return {
+            products: [],
+            categories: '',
+            getproducts: [],
+            searchTerm: '',
+            getsearchTerm: ''
         }
     },
-    computed:{
-        filtersearch(){
+    computed: {
+        filtersearch() {
             return this.products.filter(product => {
                 return product.product_name.match(this.searchTerm)
             })
         },
-        getfiltersearch(){
+        getfiltersearch() {
             return this.getproducts.filter(getproduct => {
                 return getproduct.product_name.match(this.getsearchTerm)
             })
         },
     },
 
-    methods:{
-        allProduct(){
+    methods: {
+        allProduct() {
             axios.get('/api/product/')
                 .then(({data}) => (this.products = data))
                 .catch()
         },
-        allCategory(){
+        allCategory() {
             axios.get('/api/category/')
                 .then(({data}) => (this.categories = data))
                 .catch()
         },
-        subProduct(id){
-            axios.get('/api/getting/product/'+id)
+        subProduct(id) {
+            axios.get('/api/getting/product/' + id)
                 .then(({data}) => (this.getproducts = data))
                 .catch()
         }
@@ -162,7 +227,7 @@ export default {
 
 
 <style type="text/css" scoped>
-#em_photo{
+#em_photo {
     height: 100px;
     width: 135px;
 }
