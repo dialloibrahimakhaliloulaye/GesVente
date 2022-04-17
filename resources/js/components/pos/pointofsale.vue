@@ -14,7 +14,7 @@
                 <!-- Earnings (Monthly) Card Example -->
 
                 <!-- Area Chart -->
-                <div class="col-xl-5 col-lg-5">
+                <div class="col-xl-5 col-lg-6">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Ajouter des frais</h6>
@@ -32,12 +32,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td><a href="#">Nom</a></td>
-                                    <td>Qté</td>
-                                    <td>P U</td>
-                                    <td>P U</td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">X</a></td>
+                                <tr v-for="cart in carts" :key="cart.id">
+                                    <td>{{cart.pro_name}}</td>
+                                    <td><input type="text" disabled style="width: 15px;" :value="cart.pro_quantity">
+                                    <button class="btn btn-sm btn-success" style="width: 20px;">+</button>
+                                    <button class="btn btn-sm btn-danger" style="width: 20px;">-</button>
+                                    </td>
+                                    <td>{{cart.product_price}}</td>
+                                    <td>{{cart.sub_total}}</td>
+                                    <td><a @click="removeItem(cart.id)" class="btn btn-sm btn-primary" style="color: white;">X</a></td>
                                 </tr>
 
                                 </tbody>
@@ -89,7 +92,7 @@
                     </div>
                 </div>
                 <!-- Pie Chart -->
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-7 col-lg-6">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Liste compléte des produits</h6>
@@ -180,6 +183,10 @@ export default {
         this.allProduct();
         this.allCategory();
         this.allCustomer();
+        this.cartProduct();
+        Reload.$on('AfterAdd', () => {
+            this.cartProduct();
+        })
     },
     data() {
         return {
@@ -189,7 +196,8 @@ export default {
             searchTerm: '',
             getsearchTerm: '',
             customers: '',
-            errors: ''
+            errors: '',
+            carts: []
         }
     },
     computed: {
@@ -209,7 +217,21 @@ export default {
         AddToCart(id){
             axios.get('/api/addToCart/'+id)
                 .then(() => {
+                    Reload.$emit('AfterAdd')
                     Notification.cart_success()
+                })
+                .catch()
+        },
+        cartProduct(){
+            axios.get('/api/cart/product/')
+                .then(({data}) => (this.carts = data))
+                .catch()
+        },
+        removeItem(id){
+            axios.get('/api/remove/cart/'+id)
+                .then(() => {
+                    Reload.$emit('AfterAdd');
+                    Notification.cart_delete()
                 })
                 .catch()
         },
