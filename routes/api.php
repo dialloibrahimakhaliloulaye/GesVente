@@ -41,3 +41,5 @@ Route::Get('/remove/cart/{id}', 'Api\CartController@removeCart');
 
 Route::Get('/increment/{id}', 'Api\CartController@increment');
 Route::Get('/decrement/{id}', 'Api\CartController@decrement');
+
+Route::Post('/orderdone', 'Api\PosController@OrderDone');

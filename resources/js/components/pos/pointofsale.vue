@@ -38,7 +38,7 @@
                                     <button class="btn btn-sm btn-success" @click.prevent="increment(cart.id)" style="width: 20px;">+</button>
                                     <button class="btn btn-sm btn-danger" @click.prevent="decrement(cart.id)" style="width: 20px;"
                                             v-if="cart.pro_quantity >=2">-</button>
-                                    <button class="btn btn-sm btn-danger" v-else="" disabled>-</button>
+                                    <button class="btn btn-sm btn-danger" v-else="">-</button>
                                     </td>
                                     <td>{{cart.product_price}}</td>
                                     <td>{{cart.sub_total}}</td>
@@ -64,11 +64,11 @@
                                 </li>
                             </ul>
                             <br>
-                            <form action="">
+                            <form @submit.prevent="orderdone">
                                 <div class="form-group">
                                     <label>Nom client</label>
                                     <select name="" class="form-control" v-model="customer_id">
-                                        <option value="" v-for="customer in customers">{{customer.name}}</option>
+                                        <option :value="customer.id" v-for="customer in customers">{{customer.name}}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -77,18 +77,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Montant restant à payer</label>
-                                    <input type="text" class="form-control" disabled required v-model="due">
+                                    <input type="text" class="form-control" required v-model="due">
                                 </div>
                                 <div class="form-group">
                                     <label>Payer par</label>
-                                    <select name="" class="form-control" v-model="customer_id">
+                                    <select name="" class="form-control" v-model="payby">
                                         <option value="HandCash">Cash maintenant</option>
                                         <option value="Reception">à la reception</option>
                                         <option value="Autre">Autre</option>
                                     </select>
                                 </div>
                                 <br>
-                                <buton type="submit" class="btn btn-success">Soumettre</buton>
+                                <button type="submit" class="btn btn-success">Soumettre</button>
                             </form>
                         </div>
                     </div>
@@ -192,6 +192,11 @@ export default {
     },
     data() {
         return {
+            customer_id:'',
+            pay:'',
+            due:'',
+            payby:'',
+
             products: [],
             categories: '',
             getproducts: [],
@@ -228,6 +233,9 @@ export default {
             return sum;
 
         },
+        // restDue(){
+        //     return this.due = this.subtotal - this.pay;
+        // }
     },
 
     methods: {
@@ -267,6 +275,16 @@ export default {
                     Notification.success()
                 })
                 .catch()
+        },
+        orderdone(){
+            var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id,
+                payby:this.payby, pay:this.pay, due:this.due, total:this.subtotal }
+
+            axios.post('/api/orderdone',data)
+                .then(() => {
+                    Notification.success()
+                    this.$router.push({name: 'home'})
+                })
         },
         allProduct() {
             axios.get('/api/product/')

@@ -4331,6 +4331,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   });
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
+    customer_id: '',
+    pay: '',
+    due: '',
+    payby: '',
     products: [],
     categories: '',
     getproducts: [],
@@ -4372,7 +4376,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 
     return sum;
-  }
+  } // restDue(){
+  //     return this.due = this.subtotal - this.pay;
+  // }
+
 }), _defineProperty(_created$created$data, "methods", {
   AddToCart: function AddToCart(id) {
     axios.get('/api/addToCart/' + id).then(function () {
@@ -4406,36 +4413,56 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       Notification.success();
     })["catch"]();
   },
-  allProduct: function allProduct() {
+  orderdone: function orderdone() {
     var _this5 = this;
+
+    var data = {
+      qty: this.qty,
+      subtotal: this.subtotal,
+      customer_id: this.customer_id,
+      payby: this.payby,
+      pay: this.pay,
+      due: this.due,
+      total: this.subtotal
+    };
+    axios.post('/api/orderdone', data).then(function () {
+      Notification.success();
+
+      _this5.$router.push({
+        name: 'home'
+      });
+    });
+  },
+  allProduct: function allProduct() {
+    var _this6 = this;
 
     axios.get('/api/product/').then(function (_ref2) {
       var data = _ref2.data;
-      return _this5.products = data;
+      return _this6.products = data;
     })["catch"]();
   },
   allCategory: function allCategory() {
-    var _this6 = this;
+    var _this7 = this;
 
     axios.get('/api/category/').then(function (_ref3) {
       var data = _ref3.data;
-      return _this6.categories = data;
+      return _this7.categories = data;
     })["catch"]();
   },
   allCustomer: function allCustomer() {
-    var _this7 = this;
+    var _this8 = this;
 
     axios.get('/api/customer/').then(function (_ref4) {
       var data = _ref4.data;
-      return _this7.customers = data;
+      return _this8.customers = data;
     })["catch"](console.log('error'));
   },
   subProduct: function subProduct(id) {
-    var _this8 = this;
+    var _this9 = this;
 
     axios.get('/api/getting/product/' + id).then(function (_ref5) {
       var data = _ref5.data;
-      return _this8.getproducts = data;
+      return _this9.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);
@@ -53995,10 +54022,7 @@ var render = function () {
                                 )
                               : _c(
                                   "button",
-                                  {
-                                    staticClass: "btn btn-sm btn-danger",
-                                    attrs: { disabled: "" },
-                                  },
+                                  { staticClass: "btn btn-sm btn-danger" },
                                   [_vm._v("-")]
                                 ),
                           ]),
@@ -54063,7 +54087,14 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "form",
-                  { attrs: { action: "" } },
+                  {
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.orderdone.apply(null, arguments)
+                      },
+                    },
+                  },
                   [
                     _c("div", { staticClass: "form-group" }, [
                       _c("label", [_vm._v("Nom client")]),
@@ -54098,9 +54129,11 @@ var render = function () {
                           },
                         },
                         _vm._l(_vm.customers, function (customer) {
-                          return _c("option", { attrs: { value: "" } }, [
-                            _vm._v(_vm._s(customer.name)),
-                          ])
+                          return _c(
+                            "option",
+                            { domProps: { value: customer.id } },
+                            [_vm._v(_vm._s(customer.name))]
+                          )
                         }),
                         0
                       ),
@@ -54145,7 +54178,7 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", disabled: "", required: "" },
+                        attrs: { type: "text", required: "" },
                         domProps: { value: _vm.due },
                         on: {
                           input: function ($event) {
@@ -54168,8 +54201,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.customer_id,
-                              expression: "customer_id",
+                              value: _vm.payby,
+                              expression: "payby",
                             },
                           ],
                           staticClass: "form-control",
@@ -54184,7 +54217,7 @@ var render = function () {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
-                              _vm.customer_id = $event.target.multiple
+                              _vm.payby = $event.target.multiple
                                 ? $$selectedVal
                                 : $$selectedVal[0]
                             },
@@ -54209,15 +54242,14 @@ var render = function () {
                     _c("br"),
                     _vm._v(" "),
                     _c(
-                      "buton",
+                      "button",
                       {
                         staticClass: "btn btn-success",
                         attrs: { type: "submit" },
                       },
                       [_vm._v("Soumettre")]
                     ),
-                  ],
-                  1
+                  ]
                 ),
               ]),
             ]),
