@@ -36,7 +36,9 @@
                                     <td>{{cart.pro_name}}</td>
                                     <td><input type="text" readonly style="width: 15px;" :value="cart.pro_quantity">
                                     <button class="btn btn-sm btn-success" @click.prevent="increment(cart.id)" style="width: 20px;">+</button>
-                                    <button class="btn btn-sm btn-danger" @click.prevent="decrement(cart.id)" style="width: 20px;">-</button>
+                                    <button class="btn btn-sm btn-danger" @click.prevent="decrement(cart.id)" style="width: 20px;"
+                                            v-if="cart.pro_quantity >=2">-</button>
+                                    <button class="btn btn-sm btn-danger" v-else="" disabled>-</button>
                                     </td>
                                     <td>{{cart.product_price}}</td>
                                     <td>{{cart.sub_total}}</td>
@@ -95,7 +97,7 @@
                 <div class="col-xl-7 col-lg-6">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Liste compléte des produits</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Liste complète des produits</h6>
 
                         </div>
                         <!--  Categorie wise product-->
@@ -140,7 +142,7 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-6" v-for="getproduct in getfiltersearch"
                                          :key="getproduct.id">
-                                        <a href="">
+                                        <a class="btn-btn-sm" @click.prevent="AddToCart(getproduct.id)">
                                             <div class="card" style="width: 8.5rem; margin-bottom: 5px;">
                                                 <img :src="getproduct.image" id="em_photo" class="card-img-top">
                                                 <div class="card-body">
