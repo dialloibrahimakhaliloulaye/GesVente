@@ -82,8 +82,8 @@
                                 <div class="form-group">
                                     <label>Payer par</label>
                                     <select name="" class="form-control" v-model="payby">
-                                        <option value="HandCash">Cash maintenant</option>
-                                        <option value="Reception">à la reception</option>
+                                        <option value="Cash maintenant">Cash maintenant</option>
+                                        <option value="à la reception">à la reception</option>
                                         <option value="Autre">Autre</option>
                                     </select>
                                 </div>

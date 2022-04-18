@@ -43,3 +43,11 @@ Route::Get('/increment/{id}', 'Api\CartController@increment');
 Route::Get('/decrement/{id}', 'Api\CartController@decrement');
 
 Route::Post('/orderdone', 'Api\PosController@OrderDone');
+
+// Order Route
+Route::Get('/orders', 'Api\OrderController@TodayOrder');
+
+Route::Get('/order/details/{id}', 'Api\OrderController@OrderDetails');
+Route::Get('/order/orderdetails/{id}', 'Api\OrderController@OrderDetailsAll');
+
+Route::Post('/search/order', 'Api\PosController@SearchOrderDate');
