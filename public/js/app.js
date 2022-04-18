@@ -4312,8 +4312,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     if (!User.loggedIn()) {
@@ -54587,7 +54585,7 @@ var render = function () {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/order" } },
-          [_vm._v("Today Order ")]
+          [_vm._v("Factures d'aujourd'hui ")]
         ),
       ],
       1
@@ -54683,15 +54681,11 @@ var render = function () {
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(order.qty))]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(order.sub_total))]),
+                          _c("td", [_vm._v(_vm._s(order.sub_total) + " FCFA")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(order.vat))]),
+                          _c("td", [_vm._v(_vm._s(order.pay) + " FCFA")]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(order.total) + " $")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(order.pay) + " $")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(order.due) + " $")]),
+                          _c("td", [_vm._v(_vm._s(order.due) + " FCFA")]),
                         ])
                       }),
                       0
@@ -54715,7 +54709,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-        _vm._v("Search Order"),
+        _vm._v("Rechercher une facture "),
       ]),
     ])
   },
@@ -54724,7 +54718,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-      _c("b", [_vm._v("Search By Date ")]),
+      _c("b", [_vm._v("Saisir la date ")]),
     ])
   },
   function () {
@@ -54735,7 +54729,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Search")]
+        [_vm._v("Chercher")]
       ),
     ])
   },
@@ -54751,7 +54745,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Order Details"),
+          _vm._v("Details factures"),
         ]),
       ]
     )
@@ -54762,19 +54756,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Product Name")]),
+        _c("th", [_vm._v("Nom produit")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Qty")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("SubTotal")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Vat")]),
+        _c("th", [_vm._v("Qté")]),
         _vm._v(" "),
         _c("th", [_vm._v("Total ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Pay ")]),
+        _c("th", [_vm._v("Montant payé ")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Due ")]),
+        _c("th", [_vm._v("Montant restant ")]),
       ]),
     ])
   },
