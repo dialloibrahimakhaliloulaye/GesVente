@@ -51,16 +51,16 @@
                         <div class="card-footer">
                             <ul class="list-group">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Qté total : <strong>57</strong>
+                                    Qté total : <strong>{{ qty }}</strong>
                                 </li>
+<!--                                <li class="list-group-item d-flex justify-content-between align-items-center">-->
+<!--                                    S. Total : <strong>57 FCFA</strong>-->
+<!--                                </li>-->
+<!--                                <li class="list-group-item d-flex justify-content-between align-items-center">-->
+<!--                                    Vat : <strong>35 %</strong>-->
+<!--                                </li>-->
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    S. Total : <strong>57 FCFA</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Vat : <strong>35 %</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Total : <strong>57</strong>
+                                    Total : <strong>{{ subtotal }} FCFA</strong>
                                 </li>
                             </ul>
                             <br>
@@ -212,6 +212,21 @@ export default {
             return this.getproducts.filter(getproduct => {
                 return getproduct.product_name.match(this.getsearchTerm)
             })
+        },
+        qty(){
+            let sum = 0;
+            for(let i = 0; i < this.carts.length; i++){
+                sum += (parseFloat(this.carts[i].pro_quantity));
+            }
+            return sum;
+        },
+        subtotal(){
+            let sum = 0;
+            for(let i = 0; i < this.carts.length; i++){
+                sum += (parseFloat(this.carts[i].pro_quantity) * parseFloat(this.carts[i].product_price));
+            }
+            return sum;
+
         },
     },
 

@@ -4354,6 +4354,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return this.getproducts.filter(function (getproduct) {
       return getproduct.product_name.match(_this3.getsearchTerm);
     });
+  },
+  qty: function qty() {
+    var sum = 0;
+
+    for (var i = 0; i < this.carts.length; i++) {
+      sum += parseFloat(this.carts[i].pro_quantity);
+    }
+
+    return sum;
+  },
+  subtotal: function subtotal() {
+    var sum = 0;
+
+    for (var i = 0; i < this.carts.length; i++) {
+      sum += parseFloat(this.carts[i].pro_quantity) * parseFloat(this.carts[i].product_price);
+    }
+
+    return sum;
   }
 }), _defineProperty(_created$created$data, "methods", {
   AddToCart: function AddToCart(id) {
@@ -54013,7 +54031,33 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-footer" }, [
-                _vm._m(3),
+                _c("ul", { staticClass: "list-group" }, [
+                  _c(
+                    "li",
+                    {
+                      staticClass:
+                        "list-group-item d-flex justify-content-between align-items-center",
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    Qté total : "
+                      ),
+                      _c("strong", [_vm._v(_vm._s(_vm.qty))]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass:
+                        "list-group-item d-flex justify-content-between align-items-center",
+                    },
+                    [
+                      _vm._v("\n                                    Total : "),
+                      _c("strong", [_vm._v(_vm._s(_vm.subtotal) + " FCFA")]),
+                    ]
+                  ),
+                ]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -54181,7 +54225,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-7 col-lg-6" }, [
             _c("div", { staticClass: "card mb-4" }, [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
               _c(
                 "ul",
@@ -54190,7 +54234,7 @@ var render = function () {
                   attrs: { id: "myTab", role: "tablist" },
                 },
                 [
-                  _vm._m(5),
+                  _vm._m(4),
                   _vm._v(" "),
                   _vm._l(_vm.categories, function (category) {
                     return _c(
@@ -54334,7 +54378,7 @@ var render = function () {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                                En stock (" +
+                                                      "\n                                                    En stock (" +
                                                         _vm._s(
                                                           product.product_quantity
                                                         ) +
@@ -54460,7 +54504,7 @@ var render = function () {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                                            En stock (" +
+                                                  "\n                                                En stock (" +
                                                     _vm._s(
                                                       getproduct.product_quantity
                                                     ) +
@@ -54569,60 +54613,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "list-group" }, [
-      _c(
-        "li",
-        {
-          staticClass:
-            "list-group-item d-flex justify-content-between align-items-center",
-        },
-        [
-          _vm._v("\n                                Qté total : "),
-          _c("strong", [_vm._v("57")]),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        {
-          staticClass:
-            "list-group-item d-flex justify-content-between align-items-center",
-        },
-        [
-          _vm._v("\n                                S. Total : "),
-          _c("strong", [_vm._v("57 FCFA")]),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        {
-          staticClass:
-            "list-group-item d-flex justify-content-between align-items-center",
-        },
-        [
-          _vm._v("\n                                Vat : "),
-          _c("strong", [_vm._v("35 %")]),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        {
-          staticClass:
-            "list-group-item d-flex justify-content-between align-items-center",
-        },
-        [
-          _vm._v("\n                                Total : "),
-          _c("strong", [_vm._v("57")]),
-        ]
-      ),
     ])
   },
   function () {
