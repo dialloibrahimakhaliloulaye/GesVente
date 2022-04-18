@@ -54528,17 +54528,17 @@ var render = function () {
                         _c("div", { staticClass: "table-responsive" }, [
                           _c("ul", { staticClass: "list-group" }, [
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Name :")]),
+                              _c("b", [_vm._v("Nom :")]),
                               _vm._v(" " + _vm._s(_vm.orders.name) + " "),
                             ]),
                             _vm._v(" "),
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Phone :")]),
+                              _c("b", [_vm._v("Téléphone :")]),
                               _vm._v(" " + _vm._s(_vm.orders.phone)),
                             ]),
                             _vm._v(" "),
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Address :")]),
+                              _c("b", [_vm._v("Adresse :")]),
                               _vm._v(" " + _vm._s(_vm.orders.address)),
                             ]),
                             _vm._v(" "),
@@ -54548,7 +54548,7 @@ var render = function () {
                             ]),
                             _vm._v(" "),
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Pay Through :")]),
+                              _c("b", [_vm._v("Méthode payement :")]),
                               _vm._v(" " + _vm._s(_vm.orders.payby)),
                             ]),
                           ]),
@@ -54565,30 +54565,18 @@ var render = function () {
                         _c("div", { staticClass: "table-responsive" }, [
                           _c("ul", { staticClass: "list-group" }, [
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Sub Total :")]),
-                              _vm._v(
-                                " " + _vm._s(_vm.orders.sub_total) + " $ "
-                              ),
-                            ]),
-                            _vm._v(" "),
-                            _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Vat :")]),
-                              _vm._v(" " + _vm._s(_vm.orders.vat) + " $"),
-                            ]),
-                            _vm._v(" "),
-                            _c("li", { staticClass: "list-group-item" }, [
                               _c("b", [_vm._v("Total :")]),
-                              _vm._v(" " + _vm._s(_vm.orders.total) + " $"),
+                              _vm._v(" " + _vm._s(_vm.orders.sub_total) + " "),
                             ]),
                             _vm._v(" "),
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Pay Amount :")]),
-                              _vm._v(" " + _vm._s(_vm.orders.pay) + " $"),
+                              _c("b", [_vm._v("Mt.payé :")]),
+                              _vm._v(" " + _vm._s(_vm.orders.pay) + " "),
                             ]),
                             _vm._v(" "),
                             _c("li", { staticClass: "list-group-item" }, [
-                              _c("b", [_vm._v("Due Amount :")]),
-                              _vm._v(" " + _vm._s(_vm.orders.due) + " $"),
+                              _c("b", [_vm._v("Mt. restant :")]),
+                              _vm._v(" " + _vm._s(_vm.orders.due) + " "),
                             ]),
                           ]),
                         ]),
@@ -54640,12 +54628,14 @@ var render = function () {
                                     _vm._v(" "),
                                     _c("td", [
                                       _vm._v(
-                                        _vm._s(detail.product_price) + " $"
+                                        _vm._s(detail.product_price) + " FCFA"
                                       ),
                                     ]),
                                     _vm._v(" "),
                                     _c("td", [
-                                      _vm._v(_vm._s(detail.sub_total) + " $"),
+                                      _vm._v(
+                                        _vm._s(detail.sub_total) + " FCFA"
+                                      ),
                                     ]),
                                   ])
                                 }),
@@ -54697,7 +54687,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Order Details "),
+          _vm._v("Details Client "),
         ]),
       ]
     )
@@ -54714,7 +54704,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Order Details"),
+          _vm._v("Montant (FCFA)"),
         ]),
       ]
     )
@@ -54731,7 +54721,7 @@ var staticRenderFns = [
       },
       [
         _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Order Details"),
+          _vm._v("Details produits"),
         ]),
       ]
     )
@@ -54742,15 +54732,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Product Name")]),
+        _c("th", [_vm._v("Nom produit")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Product Code")]),
+        _c("th", [_vm._v("Code produit")]),
         _vm._v(" "),
         _c("th", [_vm._v("Image")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Qty")]),
+        _c("th", [_vm._v("Qté")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Unit Price ")]),
+        _c("th", [_vm._v("Prix Unitaire")]),
         _vm._v(" "),
         _c("th", [_vm._v("Total ")]),
       ]),

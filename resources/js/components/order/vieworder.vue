@@ -20,15 +20,15 @@
                                             <!-- Simple Tables -->
                                             <div class="card">
                                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Order Details </h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary">Details Client </h6>
                                                 </div>
                                                 <div class="table-responsive">
                                                     <ul class="list-group">
-                                                        <li class="list-group-item"><b>Name :</b> {{ orders.name }} </li>
-                                                        <li class="list-group-item"><b>Phone :</b> {{ orders.phone }}</li>
-                                                        <li class="list-group-item"><b>Address :</b> {{ orders.address }}</li>
+                                                        <li class="list-group-item"><b>Nom :</b> {{ orders.name }} </li>
+                                                        <li class="list-group-item"><b>Téléphone :</b> {{ orders.phone }}</li>
+                                                        <li class="list-group-item"><b>Adresse :</b> {{ orders.address }}</li>
                                                         <li class="list-group-item"><b>Date :</b> {{ orders.order_date }}</li>
-                                                        <li class="list-group-item"><b>Pay Through :</b> {{ orders.payby }}</li>
+                                                        <li class="list-group-item"><b>Méthode payement :</b> {{ orders.payby }}</li>
                                                     </ul>
                                                 </div>
                                                 <div class="card-footer"></div>
@@ -39,15 +39,15 @@
                                             <!-- Simple Tables -->
                                             <div class="card">
                                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Order Details</h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary">Montant (FCFA)</h6>
                                                 </div>
                                                 <div class="table-responsive">
                                                     <ul class="list-group">
-                                                        <li class="list-group-item"><b>Sub Total :</b> {{ orders.sub_total }} $ </li>
-                                                        <li class="list-group-item"><b>Vat :</b> {{ orders.vat }} $</li>
-                                                        <li class="list-group-item"><b>Total :</b> {{ orders.total }} $</li>
-                                                        <li class="list-group-item"><b>Pay Amount :</b> {{ orders.pay }} $</li>
-                                                        <li class="list-group-item"><b>Due Amount :</b> {{ orders.due }} $</li>
+<!--                                                        <li class="list-group-item"><b>Sub Total :</b> {{ orders.sub_total }} $ </li>-->
+<!--                                                        <li class="list-group-item"><b>Vat :</b> {{ orders.vat }} $</li>-->
+                                                        <li class="list-group-item"><b>Total :</b> {{ orders.sub_total }} </li>
+                                                        <li class="list-group-item"><b>Mt.payé :</b> {{ orders.pay }} </li>
+                                                        <li class="list-group-item"><b>Mt. restant :</b> {{ orders.due }} </li>
                                                     </ul>
                                                 </div>
                                                 <div class="card-footer"></div>
@@ -60,17 +60,17 @@
                                             <!-- Simple Tables -->
                                             <div class="card">
                                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Order Details</h6>
+                                                    <h6 class="m-0 font-weight-bold text-primary">Details produits</h6>
                                                 </div>
                                                 <div class="table-responsive">
                                                     <table class="table align-items-center table-flush">
                                                         <thead class="thead-light">
                                                         <tr>
-                                                            <th>Product Name</th>
-                                                            <th>Product Code</th>
+                                                            <th>Nom produit</th>
+                                                            <th>Code produit</th>
                                                             <th>Image</th>
-                                                            <th>Qty</th>
-                                                            <th>Unit Price </th>
+                                                            <th>Qté</th>
+                                                            <th>Prix Unitaire</th>
                                                             <th>Total </th>
                                                         </tr>
                                                         </thead>
@@ -80,8 +80,8 @@
                                                             <td>{{ detail.product_code }}</td>
                                                             <td><img :src="'/'+detail.image" id="em_photo"></td>
                                                             <td>{{ detail.pro_quantity }}</td>
-                                                            <td>{{ detail.product_price }} $</td>
-                                                            <td>{{ detail.sub_total }} $</td>
+                                                            <td>{{ detail.product_price }} FCFA</td>
+                                                            <td>{{ detail.sub_total }} FCFA</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
