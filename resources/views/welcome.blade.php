@@ -147,7 +147,7 @@
 
                     <router-link class="collapse-item" to="/order">Factures d'aujourd'hui</router-link>
                     <router-link class="collapse-item" to="/searchorder">Rechercher</router-link>
-
+                    <router-link class="collapse-item" to="">Mini-facture</router-link>
                 </div>
             </div>
         </li>

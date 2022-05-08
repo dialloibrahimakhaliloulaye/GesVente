@@ -28,6 +28,7 @@ class PosController extends Controller
         $data['customer_id'] = $request->customer_id;
         $data['qty'] = $request->qty;
         $data['sub_total'] = $request->subtotal;
+        $data['sub_income'] = $request->subincome;
         $data['pay'] = $request->pay;
         $data['due'] = $request->due;
         $data['payby'] = $request->payby;
@@ -45,6 +46,7 @@ class PosController extends Controller
             $odata['pro_quantity'] = $content->pro_quantity;
             $odata['product_price'] = $content->product_price;
             $odata['sub_total'] = $content->sub_total;
+            $odata['sub_income'] = $content->sub_income;
             DB::table('order_details')->insert($odata);
 
             DB::table('products')
@@ -76,7 +78,7 @@ class PosController extends Controller
 
     public function TodayIncome(){
         $date = date('d/m/Y');
-        $income = DB::table('orders')->where('order_date',$date)->sum('pay');
+        $income = DB::table('orders')->where('order_date',$date)->sum('sub_income');
         return response()->json($income);
     }
 

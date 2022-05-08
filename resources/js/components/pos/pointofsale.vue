@@ -196,6 +196,7 @@ export default {
             pay:'',
             due:'',
             payby:'',
+            subincome:'',
 
             products: [],
             categories: '',
@@ -231,8 +232,14 @@ export default {
                 sum += (parseFloat(this.carts[i].pro_quantity) * parseFloat(this.carts[i].product_price));
             }
             return sum;
-
         },
+        //subincome(){
+            //let sum = 0;
+            // for(let i = 0; i < this.carts.length; i++){
+            //     this.subincome += parseFloat(this.carts[i].sub_income);
+            // }
+            //return sum;
+        //},
         // restDue(){
         //     return this.due = this.subtotal - this.pay;
         // }
@@ -277,8 +284,12 @@ export default {
                 .catch()
         },
         orderdone(){
+            for(let i = 0; i < this.carts.length; i++) {
+                this.subincome += parseFloat(this.carts[i].sub_income);
+            }
+
             var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id,
-                payby:this.payby, pay:this.pay, due:this.due, total:this.subtotal }
+                payby:this.payby, pay:this.pay, due:this.due, total:this.subtotal, subincome:this.subincome }
 
             axios.post('/api/orderdone',data)
                 .then(() => {

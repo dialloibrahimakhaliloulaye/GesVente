@@ -33,6 +33,7 @@
                                 <td> {{ order.payby }} </td>
                                 <td>
                                     <router-link :to="{name: 'view-order', params:{id:order.id}}" class="btn btn-sm btn-primary">View</router-link>
+                                    <a @click.prevent="OrderDownload(order.id)" class="btn btn-info">Imprimer</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -75,7 +76,13 @@ export default {
                 .then(({data}) => (this.orders = data))
                 .catch()
         },
-
+        OrderDownload(id){
+            axios.get('/api/order_download/'+id)
+                .then(() => {
+                    Notification.download_success();
+                })
+                .catch()
+        },
 
     },
     created(){

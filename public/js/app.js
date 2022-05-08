@@ -4065,6 +4065,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -4095,6 +4096,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get('/api/orders/').then(function (_ref) {
         var data = _ref.data;
         return _this2.orders = data;
+      })["catch"]();
+    },
+    OrderDownload: function OrderDownload(id) {
+      axios.get('/api/order_download/' + id).then(function () {
+        Notification.download_success();
       })["catch"]();
     }
   }
@@ -4591,6 +4597,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     pay: '',
     due: '',
     payby: '',
+    subincome: '',
     products: [],
     categories: '',
     getproducts: [],
@@ -4632,7 +4639,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 
     return sum;
-  } // restDue(){
+  } //subincome(){
+  //let sum = 0;
+  // for(let i = 0; i < this.carts.length; i++){
+  //     this.subincome += parseFloat(this.carts[i].sub_income);
+  // }
+  //return sum;
+  //},
+  // restDue(){
   //     return this.due = this.subtotal - this.pay;
   // }
 
@@ -4672,6 +4686,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   orderdone: function orderdone() {
     var _this5 = this;
 
+    for (var i = 0; i < this.carts.length; i++) {
+      this.subincome += parseFloat(this.carts[i].sub_income);
+    }
+
     var data = {
       qty: this.qty,
       subtotal: this.subtotal,
@@ -4679,7 +4697,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       payby: this.payby,
       pay: this.pay,
       due: this.due,
-      total: this.subtotal
+      total: this.subtotal,
+      subincome: this.subincome
     };
     axios.post('/api/orderdone', data).then(function () {
       Notification.success();
@@ -53473,7 +53492,7 @@ var render = function () {
                 _c(
                   "div",
                   { staticClass: "h5 mb-0 font-weight-bold text-gray-800" },
-                  [_vm._v("$ " + _vm._s(_vm.income))]
+                  [_vm._v(" " + _vm._s(_vm.income) + " FCFA")]
                 ),
                 _vm._v(" "),
                 _vm._m(3),
@@ -53503,7 +53522,7 @@ var render = function () {
                   {
                     staticClass: "h5 mb-0 mr-3 font-weight-bold text-gray-800",
                   },
-                  [_vm._v("$ " + _vm._s(_vm.due))]
+                  [_vm._v(" " + _vm._s(_vm.due) + " FCFA")]
                 ),
                 _vm._v(" "),
                 _vm._m(5),
@@ -53531,7 +53550,7 @@ var render = function () {
                 _c(
                   "div",
                   { staticClass: "h5 mb-0 font-weight-bold text-gray-800" },
-                  [_vm._v("$ " + _vm._s(_vm.expense))]
+                  [_vm._v(" " + _vm._s(_vm.expense) + " FCFA")]
                 ),
                 _vm._v(" "),
                 _vm._m(7),
@@ -53560,8 +53579,6 @@ var render = function () {
                     return _c("tr", { key: product.id }, [
                       _c("td", [_vm._v(" " + _vm._s(product.product_name))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(" " + _vm._s(product.product_code))]),
-                      _vm._v(" "),
                       _c("td", [
                         _c("img", {
                           attrs: { src: product.image, id: "em_photo" },
@@ -53573,12 +53590,12 @@ var render = function () {
                       product.product_quantity >= 1
                         ? _c("td", [
                             _c("span", { staticClass: "badge badge-success" }, [
-                              _vm._v("Available "),
+                              _vm._v("En stock "),
                             ]),
                           ])
                         : _c("td", [
                             _c("span", { staticClass: "badge badge-danger" }, [
-                              _vm._v("Stock Out "),
+                              _vm._v("Stock fini "),
                             ]),
                           ]),
                       _vm._v(" "),
@@ -53737,17 +53754,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("Désignation")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Code")]),
+        _c("th", [_vm._v("image")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Photo")]),
+        _c("th", [_vm._v("Prix de vente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Buying Price")]),
+        _c("th", [_vm._v("Statut")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Status")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Quantity")]),
+        _c("th", [_vm._v("Quantité")]),
       ]),
     ])
   },
@@ -53842,6 +53857,20 @@ var render = function () {
                               },
                             },
                             [_vm._v("View")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-info",
+                              on: {
+                                click: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.OrderDownload(order.id)
+                                },
+                              },
+                            },
+                            [_vm._v("Imprimer")]
                           ),
                         ],
                         1
@@ -74245,6 +74274,16 @@ var Notification = /*#__PURE__*/function () {
         type: 'success',
         layout: 'topRight',
         text: 'ligne supprimée!',
+        timeout: 2000
+      }).show();
+    }
+  }, {
+    key: "download_success",
+    value: function download_success() {
+      new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Facture téléchargé avec succès',
         timeout: 2000
       }).show();
     }

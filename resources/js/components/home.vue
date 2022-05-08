@@ -36,7 +36,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">Bénéfice d'aujourd'hui</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$ {{ income }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ income }} FCFA</div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
                                     <span>...</span>
@@ -56,7 +56,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">Dettes d'aujourd'hui</div>
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">$ {{ due }}</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> {{ due }} FCFA</div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
                                     <span>...</span>
@@ -76,7 +76,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-uppercase mb-1">Dépenses d'aujourd'hui</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$ {{ expense }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ expense }} FCFA</div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
                                     <span>...</span>
@@ -100,25 +100,25 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th>Name</th>
-                                <th>Code</th>
-                                <th>Photo</th>
+                                <th>Désignation</th>
+<!--                                <th>Code</th>-->
+                                <th>image</th>
 
-                                <th>Buying Price</th>
-                                <th>Status</th>
-                                <th>Quantity</th>
+                                <th>Prix de vente</th>
+                                <th>Statut</th>
+                                <th>Quantité</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr v-for="product in products" :key="product.id">
                                 <td> {{ product.product_name }}</td>
-                                <td> {{ product.product_code }}</td>
+<!--                                <td> {{ product.product_code }}</td>-->
                                 <td><img :src="product.image" id="em_photo"></td>
 
                                 <td>{{ product.buying_price }}</td>
                                 <td v-if="product.product_quantity  >= 1 "><span
-                                    class="badge badge-success">Available </span></td>
-                                <td v-else=" "><span class="badge badge-danger">Stock Out </span></td>
+                                    class="badge badge-success">En stock </span></td>
+                                <td v-else=" "><span class="badge badge-danger">Stock fini </span></td>
                                 <td>{{ product.product_quantity }}</td>
                             </tr>
                             </tbody>

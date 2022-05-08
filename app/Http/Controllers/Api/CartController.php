@@ -16,9 +16,10 @@ class CartController extends Controller
         if ($check) {
             DB::table('pos')->where('pro_id',$id)->increment('pro_quantity');
 
-            $product = DB::table('pos')->where('pro_id',$id)->first();
-            $subtotal = $product->pro_quantity * $product->product_price;
-            DB::table('pos')->where('pro_id',$id)->update(['sub_total'=> $subtotal]);
+            $productpos = DB::table('pos')->where('pro_id',$id)->first();
+            $subtotal = $productpos->pro_quantity * $productpos->product_price;
+            $subincome = $product->selling_price * $productpos->pro_quantity - $product->buying_price * $productpos->pro_quantity;
+            DB::table('pos')->where('pro_id',$id)->update(['sub_total'=> $subtotal, 'sub_income'=> $subincome]);
 
         }else{
             $data = array();
@@ -27,6 +28,7 @@ class CartController extends Controller
             $data['pro_quantity'] = 1;
             $data['product_price'] = $product->selling_price;
             $data['sub_total'] = $product->selling_price;
+            $data['sub_income'] = $product->selling_price - $product->buying_price;
 
             DB::table('pos')->insert($data);
         }

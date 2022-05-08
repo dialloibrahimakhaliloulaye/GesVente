@@ -50,6 +50,8 @@ Route::Get('/orders', 'Api\OrderController@TodayOrder');
 Route::Get('/order/details/{id}', 'Api\OrderController@OrderDetails');
 Route::Get('/order/orderdetails/{id}', 'Api\OrderController@OrderDetailsAll');
 
+Route::get('/order_download/{id}', 'Api\OrderController@OrderDownload');
+
 Route::Post('/search/order', 'Api\PosController@SearchOrderDate');
 
 // Admin Dashboard Route

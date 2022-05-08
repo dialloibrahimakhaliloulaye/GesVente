@@ -61,6 +61,15 @@
              timeout: 2000,
          }).show();
      }
+
+     download_success(){
+         new Noty({
+             type: 'success',
+             layout: 'topRight',
+             text: 'Facture téléchargé avec succès',
+             timeout: 2000,
+         }).show();
+     }
  }
 
  export default Notification = new Notification()
