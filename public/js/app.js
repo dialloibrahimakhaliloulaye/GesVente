@@ -54443,14 +54443,41 @@ var render = function () {
         _c("div", { staticClass: "row mb-3" }, [
           _c("div", { staticClass: "col-xl-5 col-lg-6" }, [
             _c("div", { staticClass: "card mb-4" }, [
-              _vm._m(1),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "card-header py-3 d-flex flex-row align-items-center justify-content-between",
+                },
+                [
+                  _c(
+                    "h6",
+                    { staticClass: "m-0 font-weight-bold text-primary" },
+                    [_vm._v("Ajouter des frais")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "collapse-item",
+                      attrs: { to: "/store-customer" },
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-primary" }, [
+                        _vm._v("Ajouter un client"),
+                      ]),
+                    ]
+                  ),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "table-responsive" }, [
                 _c(
                   "table",
                   { staticClass: "table align-items-center table-flush" },
                   [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -54734,7 +54761,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-7 col-lg-6" }, [
             _c("div", { staticClass: "card mb-4" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "ul",
@@ -54743,7 +54770,7 @@ var render = function () {
                   attrs: { id: "myTab", role: "tablist" },
                 },
                 [
-                  _vm._m(4),
+                  _vm._m(3),
                   _vm._v(" "),
                   _vm._l(_vm.categories, function (category) {
                     return _c(
@@ -55087,32 +55114,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-header py-3 d-flex flex-row align-items-center justify-content-between",
-      },
-      [
-        _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Ajouter des frais"),
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "btn btn-sm btn-primary", attrs: { href: "" } },
-          [_vm._v("Ajouter un client")]
-        ),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Nom")]),
+        _c("th", [_vm._v("Désig.")]),
         _vm._v(" "),
         _c("th", [_vm._v("Qté")]),
         _vm._v(" "),
@@ -55293,6 +55297,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
+                                disabled: "",
                                 id: "exampleInputFirstName",
                               },
                               domProps: { value: _vm.form.product_code },
@@ -55443,7 +55448,7 @@ var render = function () {
                             _c(
                               "label",
                               { attrs: { for: "exampleFormControlSelect1" } },
-                              [_vm._v("Lieu produit")]
+                              [_vm._v("Chemin stock produit")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -56576,10 +56581,6 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(" " + _vm._s(product.product_code) + " "),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
                         _c("img", {
                           attrs: { src: product.image, id: "em_photo" },
                         }),
@@ -56668,11 +56669,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Nom")]),
+        _c("th", [_vm._v("Désignation")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Code")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Photo")]),
+        _c("th", [_vm._v("image")]),
         _vm._v(" "),
         _c("th", [_vm._v("Categorie")]),
         _vm._v(" "),
@@ -56680,7 +56679,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Prix de vente")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Lieu")]),
+        _c("th", [_vm._v("Chemin stock")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")]),
       ]),
@@ -56770,10 +56769,6 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("td", [
-                        _vm._v(" " + _vm._s(product.product_code) + " "),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
                         _c("img", {
                           attrs: { src: product.image, id: "em_photo" },
                         }),
@@ -56854,9 +56849,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", [_vm._v("Nom")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Code")]),
+        _c("th", [_vm._v("Désignation")]),
         _vm._v(" "),
         _c("th", [_vm._v("Photo")]),
         _vm._v(" "),

@@ -27,7 +27,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlSelect1">Code produit</label>
-                                                    <input type="text" class="form-control" id="exampleInputFirstName"
+                                                    <input type="text" class="form-control" disabled id="exampleInputFirstName"
                                                             v-model="form.product_code">
                                                     <small class="text-danger" v-if="errors.product_code"> {{ errors.product_code[0] }} </small>
                                                 </div>
@@ -54,7 +54,7 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-4">
-                                                    <label for="exampleFormControlSelect1">Lieu produit</label>
+                                                    <label for="exampleFormControlSelect1">Chemin stock produit</label>
                                                     <input type="text" class="form-control" id="exampleInputFirstName"  v-model="form.root">
                                                     <small class="text-danger" v-if="errors.root"> {{ errors.root[0] }} </small>
                                                 </div>

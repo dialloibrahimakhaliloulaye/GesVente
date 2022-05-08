@@ -18,13 +18,13 @@
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Ajouter des frais</h6>
-                            <a href="" class="btn btn-sm btn-primary">Ajouter un client</a>
+                            <router-link class="collapse-item" to="/store-customer"><button class="btn btn-primary">Ajouter un client</button></router-link>
                         </div>
                         <div class="table-responsive">
                             <table class="table align-items-center table-flush">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>Nom</th>
+                                    <th>Désig.</th>
                                     <th>Qté</th>
                                     <th>P. U</th>
                                     <th>Total</th>

@@ -21,20 +21,20 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th>Nom</th>
-                                <th>Code</th>
-                                <th>Photo</th>
+                                <th>Désignation</th>
+<!--                                <th>Code</th>-->
+                                <th>image</th>
                                 <th>Categorie</th>
                                 <th>Prix d'achat</th>
                                 <th>Prix de vente</th>
-                                <th>Lieu</th>
+                                <th>Chemin stock</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr v-for="product in filtersearch" :key="product.id">
                                 <td> {{ product.product_name }} </td>
-                                <td> {{ product.product_code }} </td>
+<!--                                <td> {{ product.product_code }} </td>-->
                                 <td><img :src="product.image" id="em_photo"></td>
                                 <td>{{ product.category_name }}</td>
                                 <td>{{ product.buying_price }}</td>
