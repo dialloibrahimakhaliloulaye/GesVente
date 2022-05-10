@@ -56,6 +56,7 @@ let pos = require('./components/pos/pointofsale.vue').default;
 let order = require('./components/order/order.vue').default;
 let vieworder = require('./components/order/vieworder.vue').default;
 let searchorder = require('./components/order/search.vue').default;
+let orderdownload = require('./components/order/order_download.vue').default;
 
 export const routes = [
     { path: '/', component: login, name: '/' },
@@ -113,4 +114,5 @@ export const routes = [
     { path: '/order', component: order, name:'order'},
     { path: '/view-order/:id', component: vieworder, name:'view-order'},
     { path: '/searchorder', component: searchorder, name:'searchorder'},
+    { path: '/order-download', component: orderdownload, name:'orderdownload'},
 ]

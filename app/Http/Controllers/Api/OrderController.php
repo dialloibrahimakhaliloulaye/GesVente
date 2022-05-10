@@ -38,35 +38,4 @@ class OrderController extends Controller
         return response()->json($details);
     }
 
-    public function OrderDownload($id){
-        $order = DB::table('orders')
-            ->join('customers','orders.customer_id','customers.id')
-            ->where('orders.id',$id)
-            ->select('customers.name','customers.phone','customers.address','orders.*')
-            ->first();
-
-        $details = DB::table('order_details')
-            ->join('products','order_details.product_id','products.id')
-            ->where('order_details.order_id',$id)
-            ->select('products.product_name','products.product_code','products.image','order_details.*')
-            ->get();
-
-//        $pdf = PDF::loadView('order_download', compact('order', 'details'))->setPaper('a4')->setOptions([
-//            'tempDir' => public_path(),
-//            'chroot' => public_path(),
-//        ]);
-//        return $pdf->download('invoice.pdf');
-
-//        $pdf = PDF::loadView('order_download', compact('order', 'details'))->setPaper('a4', 'landscape')->setWarnings(false);
-//
-//        return response()->streamDownload(function () use ($pdf) {
-//            echo $pdf->output();
-//        }, 'invoice.pdf');
-
-        return PDF::loadView('order_download', compact('order', 'details'))
-            ->setPaper('a4', 'landscape')
-            ->setWarnings(false)
-            ->save(public_path("fichier.pdf"))
-            ->stream();
-    }
 }

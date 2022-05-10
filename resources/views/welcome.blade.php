@@ -366,20 +366,21 @@
 
             <!-- Container Fluid-->
             <div class="container-fluid" id="container-wrapper">
+{{--                @yield('content2')--}}
                 <router-view></router-view>
             </div>
             <!---Container Fluid-->
         </div>
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
-              <b><a href="https://www.Gollene-Tech.com/" target="_blank">Gollene Tech Consulting</a></b>
-            </span>
-                </div>
-            </div>
-        </footer>
+{{--        <footer class="sticky-footer bg-white">--}}
+{{--            <div class="container my-auto">--}}
+{{--                <div class="copyright text-center my-auto">--}}
+{{--            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by--}}
+{{--              <b><a href="https://www.Gollene-Tech.com/" target="_blank">Gollene Tech Consulting</a></b>--}}
+{{--            </span>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </footer>--}}
         <!-- Footer -->
     </div>
 </div>
