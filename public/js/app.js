@@ -4219,6 +4219,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
   created: function created() {
     if (!User.loggedIn()) {
@@ -4248,7 +4250,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })["catch"](console.log('error'));
 }), _defineProperty(_created$data$created, "methods", {
   printme: function printme() {
-    window.print();
+    var prtContent = document.getElementById("cont");
+    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    WinPrint.document.write(prtContent.innerHTML);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close(); // var body=document.getElementById('body').innerHTML;
+    // var data=document.getElementById('cont').innerHTML;
+    // document.getElementById('body').innerHTML=data;
+    // window.print();
   }
 }), _created$data$created);
 
@@ -54150,7 +54161,7 @@ var render = function () {
         _c(
           "router-link",
           { staticClass: "btn btn-primary", attrs: { to: "/order" } },
-          [_vm._v("Retour ")]
+          [_vm._v("Retour")]
         ),
         _vm._v(" "),
         _c(
@@ -54174,120 +54185,122 @@ var render = function () {
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("table", {
-      staticStyle: { background: "white", padding: "2px" },
-      attrs: { width: "100%" },
-    }),
-    _vm._v(" "),
-    _c(
-      "table",
-      {
-        staticClass: "font",
-        staticStyle: { background: "#F7F7F7", padding: "0 5px 0 5px" },
+    _c("div", { attrs: { id: "cont" } }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("table", {
+        staticStyle: { background: "white", padding: "2px" },
         attrs: { width: "100%" },
-      },
-      [
-        _c("tr", [
-          _c("td", [
-            _c(
-              "p",
-              { staticClass: "font", staticStyle: { "margin-left": "20px" } },
-              [
-                _c("strong", [_vm._v("Nom client:")]),
-                _vm._v(" " + _vm._s(_vm.orders.name)),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Télephone:")]),
-                _vm._v(" " + _vm._s(_vm.orders.phone) + " "),
-                _c("br"),
-                _vm._v(" "),
-                _c("strong", [_vm._v("Adresse:")]),
-                _vm._v(" " + _vm._s(_vm.orders.address) + " "),
-                _c("br"),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _c("p", { staticClass: "font" }),
-            _vm._m(1),
-            _vm._v(
-              "\n                Date Commande : " +
-                _vm._s(_vm.orders.order_date) +
-                " "
-            ),
-            _c("br"),
-            _vm._v(
-              "\n                Type Paiement : " +
-                _vm._s(_vm.orders.payby) +
-                "\n                "
-            ),
-            _c("br"),
-          ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("h3", [_vm._v("Produit")]),
-    _vm._v(" "),
-    _c("table", { attrs: { width: "100%" } }, [
-      _vm._m(2),
+      }),
       _vm._v(" "),
       _c(
-        "tbody",
-        _vm._l(_vm.details, function (item) {
-          return _c("tr", { staticClass: "font" }, [
-            _c("td", { attrs: { align: "center" } }, [
-              _vm._v(" " + _vm._s(item.product_name)),
+        "table",
+        {
+          staticClass: "font",
+          staticStyle: { background: "#F7F7F7", padding: "0 5px 0 5px" },
+          attrs: { width: "100%" },
+        },
+        [
+          _c("tr", [
+            _c("td", [
+              _c(
+                "p",
+                { staticClass: "font", staticStyle: { "margin-left": "20px" } },
+                [
+                  _c("strong", [_vm._v("Nom client:")]),
+                  _vm._v(" " + _vm._s(_vm.orders.name)),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("Télephone:")]),
+                  _vm._v(" " + _vm._s(_vm.orders.phone) + " "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v("Adresse:")]),
+                  _vm._v(" " + _vm._s(_vm.orders.address) + " "),
+                  _c("br"),
+                ]
+              ),
             ]),
             _vm._v(" "),
-            _c("td", { attrs: { align: "center" } }, [
-              _vm._v(_vm._s(item.pro_quantity)),
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { align: "center" } }, [
-              _vm._v(_vm._s(item.product_price) + " FCFA"),
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { align: "center" } }, [
-              _vm._v(_vm._s(item.sub_total) + " FCFA"),
-            ]),
-          ])
-        }),
-        0
-      ),
-    ]),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c(
-      "table",
-      { staticStyle: { padding: "0 10px 0 10px" }, attrs: { width: "100%" } },
-      [
-        _c("tr", [
-          _c("td", { attrs: { align: "right" } }, [
-            _c("h2", [
-              _c("span", { staticStyle: { color: "green" } }, [
-                _vm._v("Total:"),
-              ]),
-              _vm._v(" " + _vm._s(_vm.orders.sub_total) + " FCFA"),
+            _c("td", [
+              _c("p", { staticClass: "font" }),
+              _vm._m(1),
+              _vm._v(
+                "\n                    Date Commande : " +
+                  _vm._s(_vm.orders.order_date) +
+                  " "
+              ),
+              _c("br"),
+              _vm._v(
+                "\n                    Type Paiement : " +
+                  _vm._s(_vm.orders.payby) +
+                  "\n                    "
+              ),
+              _c("br"),
             ]),
           ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _vm._m(3),
-    _vm._v(" "),
-    _vm._m(4),
+        ]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Produit")]),
+      _vm._v(" "),
+      _c("table", { attrs: { width: "100%" } }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.details, function (item) {
+            return _c("tr", { staticClass: "font" }, [
+              _c("td", { attrs: { align: "center" } }, [
+                _vm._v(" " + _vm._s(item.product_name)),
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { align: "center" } }, [
+                _vm._v(_vm._s(item.pro_quantity)),
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { align: "center" } }, [
+                _vm._v(_vm._s(item.product_price) + " FCFA"),
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { align: "center" } }, [
+                _vm._v(_vm._s(item.sub_total) + " FCFA"),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "table",
+        { staticStyle: { padding: "0 10px 0 10px" }, attrs: { width: "100%" } },
+        [
+          _c("tr", [
+            _c("td", { attrs: { align: "right" } }, [
+              _c("h2", [
+                _c("span", { staticStyle: { color: "green" } }, [
+                  _vm._v("Total:"),
+                ]),
+                _vm._v(" " + _vm._s(_vm.orders.sub_total) + " FCFA"),
+              ]),
+            ]),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+    ]),
   ])
 }
 var staticRenderFns = [
