@@ -4841,10 +4841,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   orderdone: function orderdone() {
     var _this5 = this;
 
+    var somme = 0;
+
     for (var i = 0; i < this.carts.length; i++) {
-      this.subincome += parseFloat(this.carts[i].sub_income);
+      somme += parseFloat(this.carts[i].sub_income);
     }
 
+    this.subincome = somme;
+    console.log(this.subincome);
     var data = {
       qty: this.qty,
       subtotal: this.subtotal,

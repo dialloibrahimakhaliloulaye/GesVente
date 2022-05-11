@@ -284,9 +284,12 @@ export default {
                 .catch()
         },
         orderdone(){
+            let somme=0;
             for(let i = 0; i < this.carts.length; i++) {
-                this.subincome += parseFloat(this.carts[i].sub_income);
+                somme += parseFloat(this.carts[i].sub_income);
             }
+            this.subincome=somme;
+            console.log(this.subincome);
 
             var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id,
                 payby:this.payby, pay:this.pay, due:this.due, total:this.subtotal, subincome:this.subincome }
