@@ -2040,12 +2040,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'home'
         });
-      })["catch"](function (error) {
-        return _this.errors = error.response.data.errors;
-      })["catch"](Toast.fire({
-        icon: 'warning',
-        title: 'Email ou mot de passe incorrect'
-      }));
+      }) // .catch(error => this.errors = error.response.data.errors)
+      ["catch"](function (error) {
+        Toast.fire({
+          icon: 'warning',
+          title: 'Email ou mot de passe incorrect'
+        });
+      });
     }
   }
 });

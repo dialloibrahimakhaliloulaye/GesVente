@@ -76,13 +76,13 @@ export default {
                  })
                  this.$router.push({name: 'home'})
              })
-             .catch(error => this.errors = error.response.data.errors)
-             .catch(
+             // .catch(error => this.errors = error.response.data.errors)
+             .catch(error =>{
                  Toast.fire({
                      icon: 'warning',
                      title: 'Email ou mot de passe incorrect'
                  })
-             )
+             })
         }
     }
 }
