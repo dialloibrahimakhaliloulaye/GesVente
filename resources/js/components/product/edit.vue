@@ -27,7 +27,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlSelect1">Code produit</label>
-                                                    <input type="text" class="form-control" id="exampleInputFirstName" v-model="form.product_code">
+                                                    <input type="text" disabled class="form-control" id="exampleInputFirstName" v-model="form.product_code">
                                                     <small class="text-danger" v-if="errors.product_code"> {{ errors.product_code[0] }} </small>
                                                 </div>
                                             </div>

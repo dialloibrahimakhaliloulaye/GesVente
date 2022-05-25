@@ -22,7 +22,7 @@
                                 <th>Nom</th>
                                 <th>Photo</th>
                                 <th>Téléphone</th>
-                                <th>Email</th>
+                                <th>Mt. reliqua</th>
                                 <th>Adresse</th>
                                 <th>Action</th>
                             </tr>
@@ -32,7 +32,7 @@
                                 <td> {{ customer.name }} </td>
                                 <td><img :src="customer.photo" id="em_photo"></td>
                                 <td>{{ customer.phone }}</td>
-                                <td>{{ customer.email }}</td>
+                                <td>{{ customer.reliqua }}</td>
                                 <td>{{ customer.address }}</td>
                                 <td>
                                     <router-link :to="{name: 'edit-customer', params:{id:customer.id}}" class="btn btn-sm btn-primary">Editer</router-link>

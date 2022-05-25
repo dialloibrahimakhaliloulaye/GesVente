@@ -66,7 +66,7 @@ export default {
     computed:{
         filtersearch(){
             return this.expenses.filter(expense => {
-                return expense.expense_date.match(this.searchTerm)
+                return expense.expense_date.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

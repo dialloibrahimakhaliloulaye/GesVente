@@ -77,7 +77,7 @@ export default {
     computed:{
         filtersearch(){
             return this.products.filter(product => {
-                return product.product_name.match(this.searchTerm)
+                return product.product_name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

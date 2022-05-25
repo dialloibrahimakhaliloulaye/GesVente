@@ -2615,7 +2615,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         name: null,
-        email: null,
+        // email: null,
         phone: null,
         address: null,
         photo: null
@@ -2772,7 +2772,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       form: {
         name: '',
-        email: '',
+        reliqua: '',
         phone: '',
         address: '',
         photo: '',
@@ -3746,7 +3746,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.expenses.filter(function (expense) {
-        return expense.expense_date.match(_this.searchTerm);
+        return expense.expense_date.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -5052,7 +5052,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       form: {
         product_name: null,
-        product_code: null,
+        // product_code: null,
         category_id: null,
         suplier_id: null,
         root: null,
@@ -5527,7 +5527,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.products.filter(function (product) {
-        return product.product_name.match(_this.searchTerm);
+        return product.product_name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -51253,54 +51253,13 @@ var render = function () {
                                 ])
                               : _vm._e(),
                           ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.email,
-                                  expression: "form.email",
-                                },
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "email",
-                                id: "exampleInputFirstName",
-                              },
-                              domProps: { value: _vm.form.email },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "email",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.email
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
-                                  ),
-                                ])
-                              : _vm._e(),
-                          ]),
                         ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(3),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -51341,7 +51300,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -51419,7 +51378,7 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(4),
                     ]
                   ),
                   _vm._v(" "),
@@ -51454,14 +51413,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
       _c("b", [_vm._v("Nom complet ")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-      _c("b", [_vm._v("Email ")]),
     ])
   },
   function () {
@@ -51601,16 +51552,16 @@ var render = function () {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.form.email,
-                                  expression: "form.email",
+                                  value: _vm.form.reliqua,
+                                  expression: "form.reliqua",
                                 },
                               ],
                               staticClass: "form-control",
                               attrs: {
-                                type: "email",
+                                type: "text",
                                 id: "exampleInputFirstName",
                               },
-                              domProps: { value: _vm.form.email },
+                              domProps: { value: _vm.form.reliqua },
                               on: {
                                 input: function ($event) {
                                   if ($event.target.composing) {
@@ -51618,17 +51569,17 @@ var render = function () {
                                   }
                                   _vm.$set(
                                     _vm.form,
-                                    "email",
+                                    "reliqua",
                                     $event.target.value
                                   )
                                 },
                               },
                             }),
                             _vm._v(" "),
-                            _vm.errors.email
+                            _vm.errors.reliqua
                               ? _c("small", { staticClass: "text-danger" }, [
                                   _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
+                                    " " + _vm._s(_vm.errors.reliqua[0]) + " "
                                   ),
                                 ])
                               : _vm._e(),
@@ -51800,7 +51751,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-      _c("b", [_vm._v("Email ")]),
+      _c("b", [_vm._v("Mt. reliqua ")]),
     ])
   },
   function () {
@@ -51920,7 +51871,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(customer.phone))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(customer.email))]),
+                      _c("td", [_vm._v(_vm._s(customer.reliqua))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(customer.address))]),
                       _vm._v(" "),
@@ -52005,7 +51956,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Téléphone")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
+        _c("th", [_vm._v("Mt. reliqua")]),
         _vm._v(" "),
         _c("th", [_vm._v("Adresse")]),
         _vm._v(" "),
@@ -55879,7 +55830,7 @@ var render = function () {
                             _c(
                               "label",
                               { attrs: { for: "exampleFormControlSelect1" } },
-                              [_vm._v("Prix de vente")]
+                              [_vm._v("Prix d'achat")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -55926,7 +55877,7 @@ var render = function () {
                             _c(
                               "label",
                               { attrs: { for: "exampleFormControlSelect1" } },
-                              [_vm._v("Prix d'achat")]
+                              [_vm._v("Prix de vente")]
                             ),
                             _vm._v(" "),
                             _c("input", {
@@ -56421,6 +56372,7 @@ var render = function () {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
+                                disabled: "",
                                 id: "exampleInputFirstName",
                               },
                               domProps: { value: _vm.form.product_code },

@@ -59,12 +59,12 @@
                                                     <small class="text-danger" v-if="errors.root"> {{ errors.root[0] }} </small>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="exampleFormControlSelect1">Prix de vente</label>
+                                                    <label for="exampleFormControlSelect1">Prix d'achat</label>
                                                     <input type="text" class="form-control" id="exampleInputFirstName"  v-model="form.buying_price">
                                                     <small class="text-danger" v-if="errors.buying_price"> {{ errors.buying_price[0] }} </small>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="exampleFormControlSelect1">Prix d'achat</label>
+                                                    <label for="exampleFormControlSelect1">Prix de vente</label>
                                                     <input type="text" class="form-control" id="exampleInputFirstName" v-model="form.selling_price">
                                                     <small class="text-danger" v-if="errors.selling_price"> {{ errors.selling_price[0] }} </small>
                                                 </div>
@@ -134,7 +134,7 @@ export default {
         return {
             form:{
                 product_name: null,
-                product_code: null,
+                // product_code: null,
                 category_id: null,
                 suplier_id: null,
                 root: null,

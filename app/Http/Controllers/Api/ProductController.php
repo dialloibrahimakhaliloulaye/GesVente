@@ -36,9 +36,9 @@ class ProductController extends Controller
     {
         $validateData = $request->validate([
             'product_name' => 'required|max:255',
-            'product_code' => 'required|unique:products|max:255',
+//            'product_code' => 'required|unique:products|max:255',
             'category_id' => 'required',
-            'suplier_id' => 'required',
+//            'suplier_id' => 'required',
             'buying_price' => 'required',
             'selling_price' => 'required',
             'buying_date' => 'required',
@@ -59,7 +59,7 @@ class ProductController extends Controller
             $product = new Product;
             $product->category_id = $request->category_id;
             $product->product_name = $request->product_name;
-            $product->product_code = $request->product_code;
+            $product->product_code = 'PR'.uniqid(mt_rand(1000000000,9999999999));
             $product->root = $request->root;
             $product->buying_price = $request->buying_price;
             $product->selling_price = $request->selling_price;
@@ -72,7 +72,7 @@ class ProductController extends Controller
             $product = new Product;
             $product->category_id = $request->category_id;
             $product->product_name = $request->product_name;
-            $product->product_code = $request->product_code;
+            $product->product_code = 'PR'.mt_rand(1000000000,9999999999);
             $product->root = $request->root;
             $product->buying_price = $request->buying_price;
             $product->selling_price = $request->selling_price;
@@ -107,7 +107,7 @@ class ProductController extends Controller
     {
         $data = array();
         $data['product_name'] = $request->product_name;
-        $data['product_code'] = $request->product_code;
+//        $data['product_code'] = $request->product_code;
         $data['category_id'] = $request->category_id;
         $data['suplier_id'] = $request->suplier_id;
         $data['root'] = $request->root;

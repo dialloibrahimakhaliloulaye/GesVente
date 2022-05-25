@@ -31,7 +31,7 @@ class CustomerController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|unique:customers|max:255',
-            'email' => 'required',
+//            'email' => 'required',
             'phone' => 'required|unique:customers',
 
         ]);
@@ -49,7 +49,7 @@ class CustomerController extends Controller
 
             $customer = new Customer;
             $customer->name = $request->name;
-            $customer->email = $request->email;
+//            $customer->reliqua = $request->reliqua;
             $customer->phone = $request->phone;
             $customer->address = $request->address;
             $customer->photo = $image_url;
@@ -57,7 +57,7 @@ class CustomerController extends Controller
         }else{
             $customer = new Customer;
             $customer->name = $request->name;
-            $customer->email = $request->email;
+//            $customer->reliqua = $request->reliqua;
             $customer->phone = $request->phone;
             $customer->address = $request->address;
 
@@ -88,7 +88,7 @@ class CustomerController extends Controller
     {
         $data = array();
         $data['name'] = $request->name;
-        $data['email'] = $request->email;
+        $data['reliqua'] = $request->reliqua;
         $data['phone'] = $request->phone;
         $data['address'] = $request->address;
         $image = $request->newphoto;

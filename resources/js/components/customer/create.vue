@@ -23,12 +23,12 @@
                                                             v-model="form.name">
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label for="exampleFormControlTextarea1"><b>Email </b></label>
-                                                    <input type="email" class="form-control" id="exampleInputFirstName"
-                                                           v-model="form.email">
-                                                    <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label for="exampleFormControlTextarea1"><b>Email </b></label>-->
+<!--                                                    <input type="email" class="form-control" id="exampleInputFirstName"-->
+<!--                                                           v-model="form.email">-->
+<!--                                                    <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -95,7 +95,7 @@ export default {
         return {
             form:{
                 name: null,
-                email: null,
+                // email: null,
                 phone: null,
                 address: null,
                 photo: null

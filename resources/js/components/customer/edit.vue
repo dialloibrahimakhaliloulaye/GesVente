@@ -24,10 +24,10 @@
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="exampleFormControlTextarea1"><b>Email </b></label>
-                                                    <input type="email" class="form-control" id="exampleInputFirstName"
-                                                           v-model="form.email">
-                                                    <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
+                                                    <label for="exampleFormControlTextarea1"><b>Mt. reliqua </b></label>
+                                                    <input type="text" class="form-control" id="exampleInputFirstName"
+                                                           v-model="form.reliqua">
+                                                    <small class="text-danger" v-if="errors.reliqua"> {{ errors.reliqua[0] }} </small>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@ export default {
         return {
             form:{
                 name: '',
-                email: '',
+                reliqua: '',
                 phone: '',
                 address: '',
                 photo: '',
