@@ -2909,7 +2909,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.customers.filter(function (customer) {
-        return customer.name.match(_this.searchTerm);
+        return customer.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -5764,7 +5764,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.employees.filter(function (employee) {
-        return employee.name.match(_this.searchTerm);
+        return employee.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -5893,7 +5893,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       form: {
         name: '',
-        email: '',
+        // email: '',
         salary_month: '',
         sallery: ''
       },
@@ -6148,7 +6148,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.salaries.filter(function (salary) {
-        return salary.salary_month.match(_this.searchTerm);
+        return salary.salary_month.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -6249,7 +6249,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.salaries.filter(function (salary) {
-        return salary.name.match(_this.searchTerm);
+        return salary.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -57466,54 +57466,13 @@ var render = function () {
                                 ])
                               : _vm._e(),
                           ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.email,
-                                  expression: "form.email",
-                                },
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "email",
-                                id: "exampleInputFirstName",
-                              },
-                              domProps: { value: _vm.form.email },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "email",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.email
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
-                                  ),
-                                ])
-                              : _vm._e(),
-                          ]),
                         ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(3),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -57617,7 +57576,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -57659,7 +57618,7 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(4),
                     ]
                   ),
                   _vm._v(" "),
@@ -57694,14 +57653,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
       _c("b", [_vm._v("Nom Complet")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-      _c("b", [_vm._v("Email")]),
     ])
   },
   function () {
@@ -57832,55 +57783,13 @@ var render = function () {
                                 ])
                               : _vm._e(),
                           ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _c("input", {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.email,
-                                  expression: "form.email",
-                                },
-                              ],
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "email",
-                                disabled: "disabled",
-                                id: "exampleInputFirstName",
-                              },
-                              domProps: { value: _vm.form.email },
-                              on: {
-                                input: function ($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.form,
-                                    "email",
-                                    $event.target.value
-                                  )
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.email
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    " " + _vm._s(_vm.errors.email[0]) + " "
-                                  ),
-                                ])
-                              : _vm._e(),
-                          ]),
                         ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "form-row" }, [
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(3),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -58009,7 +57918,7 @@ var render = function () {
                           }),
                           _vm._v(" "),
                           _c("div", { staticClass: "col-md-6" }, [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -58051,7 +57960,7 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _vm._m(5),
+                      _vm._m(4),
                     ]
                   ),
                   _vm._v(" "),
@@ -58086,14 +57995,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
       _c("b", [_vm._v("Nom complet")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "exampleFormControlSelect1" } }, [
-      _c("b", [_vm._v("Email")]),
     ])
   },
   function () {

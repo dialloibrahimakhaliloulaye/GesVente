@@ -61,7 +61,7 @@ export default {
     computed:{
         filtersearch(){
             return this.salaries.filter(salary => {
-                return salary.salary_month.match(this.searchTerm)
+                return salary.salary_month.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

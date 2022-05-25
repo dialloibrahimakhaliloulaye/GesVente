@@ -67,7 +67,7 @@ export default {
     computed:{
         filtersearch(){
             return this.employees.filter(employee => {
-                return employee.name.match(this.searchTerm)
+                return employee.name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

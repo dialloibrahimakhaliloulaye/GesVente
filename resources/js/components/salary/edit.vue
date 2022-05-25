@@ -23,11 +23,11 @@
                                                     <input type="text" class="form-control" disabled="disabled" id="exampleInputFirstName" v-model="form.name">
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label for="exampleFormControlSelect1"><b>Email</b></label>
-                                                    <input type="email" class="form-control" disabled="disabled" id="exampleInputFirstName" v-model="form.email">
-                                                    <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label for="exampleFormControlSelect1"><b>Email</b></label>-->
+<!--                                                    <input type="email" class="form-control" disabled="disabled" id="exampleInputFirstName" v-model="form.email">-->
+<!--                                                    <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
