@@ -31,7 +31,7 @@ class SuplierController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|unique:supliers|max:255',
-            'email' => 'required',
+//            'email' => 'required',
             'phone' => 'required',
 
         ]);
@@ -49,7 +49,7 @@ class SuplierController extends Controller
 
             $suplier = new Suplier;
             $suplier->name = $request->name;
-            $suplier->email = $request->email;
+//            $suplier->email = $request->email;
             $suplier->phone = $request->phone;
             $suplier->shopname = $request->shopname;
             $suplier->address = $request->address;
@@ -58,7 +58,7 @@ class SuplierController extends Controller
         } else {
             $suplier = new Suplier;
             $suplier->name = $request->name;
-            $suplier->email = $request->email;
+//            $suplier->email = $request->email;
             $suplier->phone = $request->phone;
             $suplier->shopname = $request->shopname;
             $suplier->address = $request->address;
@@ -90,7 +90,7 @@ class SuplierController extends Controller
     {
         $data = array();
         $data['name'] = $request->name;
-        $data['email'] = $request->email;
+//        $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['shopname'] = $request->shopname;
         $data['address'] = $request->address;

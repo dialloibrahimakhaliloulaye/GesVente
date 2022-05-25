@@ -26,10 +26,15 @@
                                                            placeholder="Nom complet agent de l'entreprise" v-model="form.name">
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
-                                                <div class="col-md-6">
+<!--                                                <div class="col-md-6">
                                                     <input type="email" class="form-control" id="exampleInputFirstName"
                                                            placeholder="Email" v-model="form.email">
                                                     <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
+                                                </div>-->
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="exampleInputFirstName"
+                                                           placeholder="Nom de l'entreprise" v-model="form.shopname">
+                                                    <small class="text-danger" v-if="errors.shopname"> {{ errors.shopname[0] }} </small>
                                                 </div>
                                             </div>
                                         </div>
@@ -43,20 +48,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" id="exampleInputFirstName"
-                                                           placeholder="Nom de l'entreprise" v-model="form.shopname">
-                                                    <small class="text-danger" v-if="errors.shopname"> {{ errors.shopname[0] }} </small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="exampleInputFirstName"
                                                            placeholder="Téléphone" v-model="form.phone">
                                                     <small class="text-danger" v-if="errors.phone"> {{ errors.phone[0] }} </small>
-                                                </div>
-                                                <div class="col-md-6">
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +59,7 @@
                                                 <div class="col-md-6">
                                                     <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected">
                                                     <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small>
-                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    <label class="custom-file-label" for="customFile">Choisir une photo</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <img :src="form.photo" style="height: 40px; width: 40px;">
@@ -75,7 +68,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
                                         </div>
                                     </form>
                                     <hr>
@@ -107,7 +100,7 @@ export default {
         return {
             form:{
                 name: null,
-                email: null,
+                // email: null,
                 phone: null,
                 shopname: null,
                 address: null,

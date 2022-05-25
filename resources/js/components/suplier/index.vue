@@ -25,7 +25,7 @@
                                 <th>Photo</th>
                                 <th>Téléphone</th>
                                 <th>Entreprise</th>
-                                <th>Email</th>
+<!--                                <th>Email</th>-->
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -35,7 +35,7 @@
                                 <td><img :src="suplier.photo" id="em_photo"></td>
                                 <td>{{ suplier.phone }}</td>
                                 <td>{{ suplier.shopname }}</td>
-                                <td>{{ suplier.email }}</td>
+<!--                                <td>{{ suplier.email }}</td>-->
                                 <td>
                                     <router-link :to="{name: 'edit-suplier', params:{id:suplier.id}}" class="btn btn-sm btn-primary">Editer</router-link>
 
@@ -74,7 +74,7 @@ export default {
     computed:{
         filtersearch(){
             return this.supliers.filter(suplier => {
-                return suplier.name.match(this.searchTerm)
+                return suplier.name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

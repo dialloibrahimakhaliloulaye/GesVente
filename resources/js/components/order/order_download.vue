@@ -15,8 +15,9 @@
             <pre class="font">
                <strong>Modji néné
                Email:support@Modji-nene.com
-               Mob: (+221) 78 301 83 34
-               Malika, Senegal</strong> <br>
+               Tel : (+221) 77 888 69 69 / 77 890 67 12
+               Mob: (+221) 76 012 12 35 / 70 764 64 06
+               Malika terminus, Dakar</strong> <br>
 
             </pre>
                     </td>

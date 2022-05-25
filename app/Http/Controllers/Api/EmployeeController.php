@@ -58,22 +58,22 @@ class EmployeeController extends Controller
             $img->save($image_url);
             $employee = new Employee;
             $employee->name = $request->name;
-            $employee->email = $request->email;
+//            $employee->email = $request->email;
             $employee->phone = $request->phone;
             $employee->sallery = $request->sallery;
             $employee->address = $request->address;
-            $employee->nid = $request->nid;
+//            $employee->nid = $request->nid;
             $employee->joining_date = $request->joining_date;
             $employee->photo = $image_url;
             $employee->save();
         }else{
             $employee = new Employee;
             $employee->name = $request->name;
-            $employee->email = $request->email;
+//            $employee->email = $request->email;
             $employee->phone = $request->phone;
             $employee->sallery = $request->sallery;
             $employee->address = $request->address;
-            $employee->nid = $request->nid;
+//            $employee->nid = $request->nid;
             $employee->joining_date = $request->joining_date;
 
             $employee->save();
@@ -104,11 +104,11 @@ class EmployeeController extends Controller
     {
         $data = array();
         $data['name'] = $request->name;
-        $data['email'] = $request->email;
+//        $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['sallery'] = $request->sallery;
         $data['address'] = $request->address;
-        $data['nid'] = $request->nid;
+//        $data['nid'] = $request->nid;
         $data['joining_date'] = $request->joining_date;
         $image = $request->newphoto;
 

@@ -21,42 +21,43 @@
                                                            v-model="form.name">
                                                     <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
                                                 </div>
-                                                <div class="col-md-6">
+<!--                                                <div class="col-md-6">
                                                     <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Email"
                                                            v-model="form.email">
                                                     <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-row">
+                                                </div>-->
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Adresse"
                                                            v-model="form.address">
                                                     <small class="text-danger" v-if="errors.address"> {{ errors.address[0] }} </small>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-row">
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Téléphone"
                                                            v-model="form.phone">
                                                     <small class="text-danger" v-if="errors.phone"> {{ errors.phone[0] }} </small>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Salaire"
+                                                           v-model="form.sallery">
+                                                    <small class="text-danger" v-if="errors.sallery"> {{ errors.sallery[0] }} </small>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Salaire"
-                                                           v-model="form.sallery">
-                                                    <small class="text-danger" v-if="errors.sallery"> {{ errors.sallery[0] }} </small>
-                                                </div>
-                                                <div class="col-md-6">
+                                                    <label for="">Date d'embauche</label>
                                                     <input type="date" class="form-control" id="exampleInputFirstName" placeholder="Date d'embauche"
                                                            v-model="form.joining_date">
                                                     <small class="text-danger" v-if="errors.joining_date"> {{ errors.joining_date[0] }} </small>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+<!--                                        <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Nid"
@@ -64,12 +65,12 @@
                                                     <small class="text-danger" v-if="errors.nid"> {{ errors.nid[0] }} </small>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                         <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected">
-                                                        <label class="custom-file-label" for="customFile">Choisir un fichier</label>
+                                                        <label class="custom-file-label" for="customFile">Choisir une photo</label>
                                                     <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small>
                                                 </div>
                                                 <div class="col-md-6">
@@ -104,12 +105,12 @@ export default {
         return{
             form:{
                 name: null,
-                email: null,
+                // email: null,
                 phone: null,
                 sallery: null,
                 address: null,
                 photo: null,
-                nid: null,
+                // nid: null,
             },
             errors: {}
         }
