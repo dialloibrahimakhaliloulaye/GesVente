@@ -17,6 +17,7 @@
                             <thead class="thead-light">
                             <tr>
                                 <th>Nom client</th>
+                                <th>Num facture</th>
                                 <th>Mt. total </th>
                                 <th>Mt. payé</th>
                                 <th>Mt. restant</th>
@@ -27,6 +28,7 @@
                             <tbody>
                             <tr v-for="order in filtersearch" :key="order.id">
                                 <td> {{ order.name }} </td>
+                                <td> {{ order.order_code }} </td>
                                 <td> {{ order.total }} FCFA </td>
                                 <td> {{ order.pay }} FCFA </td>
                                 <td> {{ order.due }} FCFA  </td>
@@ -66,7 +68,7 @@ export default {
     computed:{
         filtersearch(){
             return this.orders.filter(order => {
-                return order.name.match(this.searchTerm)
+                return order.name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         }
     },

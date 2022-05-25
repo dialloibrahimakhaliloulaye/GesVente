@@ -21,16 +21,18 @@ class CartController extends Controller
             $subincome = $product->selling_price * $productpos->pro_quantity - $product->buying_price * $productpos->pro_quantity;
             DB::table('pos')->where('pro_id',$id)->update(['sub_total'=> $subtotal, 'sub_income'=> $subincome]);
 
-        }else{
-            $data = array();
-            $data['pro_id'] = $id;
-            $data['pro_name'] = $product->product_name;
-            $data['pro_quantity'] = 1;
-            $data['product_price'] = $product->selling_price;
-            $data['sub_total'] = $product->selling_price;
-            $data['sub_income'] = $product->selling_price - $product->buying_price;
+        }else {
+//            if($product.product_quantity>0){
+                $data = array();
+                $data['pro_id'] = $id;
+                $data['pro_name'] = $product->product_name;
+                $data['pro_quantity'] = 1;
+                $data['product_price'] = $product->selling_price;
+                $data['sub_total'] = $product->selling_price;
+                $data['sub_income'] = $product->selling_price - $product->buying_price;
 
-            DB::table('pos')->insert($data);
+                DB::table('pos')->insert($data);
+//            }
         }
     }
 

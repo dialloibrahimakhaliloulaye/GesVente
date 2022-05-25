@@ -32,6 +32,7 @@ class PosController extends Controller
         $data['pay'] = $request->pay;
         $data['due'] = $request->due;
         $data['payby'] = $request->payby;
+        $data['order_code'] = 'Fa-'.strtoupper(substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 7));
         $data['order_date'] = date('d/m/Y');
         $data['order_month'] = date('F');
         $data['order_year'] = date('Y');

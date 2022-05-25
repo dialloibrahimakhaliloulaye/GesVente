@@ -38,7 +38,7 @@
                     </td>
                     <td>
                         <p class="font">
-                        <h3><span style="color: green;">Facture:</span> test</h3>
+                        <h3><span style="color: green;">Facture:</span> {{ orders.order_code }}</h3>
                         Date Commande : {{ orders.order_date }} <br>
                         Type Paiement : {{ orders.payby }}
                         <br>

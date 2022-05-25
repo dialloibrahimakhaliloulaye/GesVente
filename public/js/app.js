@@ -4069,6 +4069,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -4088,7 +4090,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.orders.filter(function (order) {
-        return order.name.match(_this.searchTerm);
+        return order.name.toLowerCase().match(_this.searchTerm.toLowerCase());
       });
     }
   },
@@ -4770,14 +4772,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this2 = this;
 
     return this.products.filter(function (product) {
-      return product.product_name.match(_this2.searchTerm);
+      return product.product_name.toLowerCase().match(_this2.searchTerm.toLowerCase());
     });
   },
   getfiltersearch: function getfiltersearch() {
     var _this3 = this;
 
     return this.getproducts.filter(function (getproduct) {
-      return getproduct.product_name.match(_this3.getsearchTerm);
+      return getproduct.product_name.toLowerCase().match(_this3.getsearchTerm.toLowerCase());
     });
   },
   qty: function qty() {
@@ -53908,6 +53910,8 @@ var render = function () {
                     return _c("tr", { key: order.id }, [
                       _c("td", [_vm._v(" " + _vm._s(order.name) + " ")]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(" " + _vm._s(order.order_code) + " ")]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(" " + _vm._s(order.total) + " FCFA ")]),
                       _vm._v(" "),
                       _c("td", [_vm._v(" " + _vm._s(order.pay) + " FCFA ")]),
@@ -53988,6 +53992,8 @@ var staticRenderFns = [
     return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
         _c("th", [_vm._v("Nom client")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Num facture")]),
         _vm._v(" "),
         _c("th", [_vm._v("Mt. total ")]),
         _vm._v(" "),
@@ -54094,7 +54100,12 @@ var render = function () {
             _vm._v(" "),
             _c("td", [
               _c("p", { staticClass: "font" }),
-              _vm._m(1),
+              _c("h3", [
+                _c("span", { staticStyle: { color: "green" } }, [
+                  _vm._v("Facture:"),
+                ]),
+                _vm._v(" " + _vm._s(_vm.orders.order_code)),
+              ]),
               _vm._v(
                 "\n                    Date Commande : " +
                   _vm._s(_vm.orders.order_date) +
@@ -54117,7 +54128,7 @@ var render = function () {
       _c("h3", [_vm._v("Produit")]),
       _vm._v(" "),
       _c("table", { attrs: { width: "100%" } }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "tbody",
@@ -54167,9 +54178,9 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(2),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(3),
     ]),
   ])
 }
@@ -54208,15 +54219,6 @@ var staticRenderFns = [
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h3", [
-      _c("span", { staticStyle: { color: "green" } }, [_vm._v("Facture:")]),
-      _vm._v(" test"),
-    ])
   },
   function () {
     var _vm = this
@@ -55017,7 +55019,7 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", required: "" },
+                        attrs: { type: "text", value: "0", required: "" },
                         domProps: { value: _vm.due },
                         on: {
                           input: function ($event) {
@@ -55242,7 +55244,7 @@ var render = function () {
                                               ]
                                             ),
                                             _vm._v(" "),
-                                            product.product_quantity >= 1
+                                            product.product_quantity >= 5
                                               ? _c(
                                                   "span",
                                                   {
@@ -55265,7 +55267,15 @@ var render = function () {
                                                     staticClass:
                                                       "badge badge-danger",
                                                   },
-                                                  [_vm._v("Stock fini ")]
+                                                  [
+                                                    _vm._v(
+                                                      "Stock fini (" +
+                                                        _vm._s(
+                                                          product.product_quantity
+                                                        ) +
+                                                        ") "
+                                                    ),
+                                                  ]
                                                 ),
                                           ]
                                         ),

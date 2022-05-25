@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Montant restant à payer</label>
-                                    <input type="text" class="form-control" required v-model="due">
+                                    <input type="text" class="form-control" value="0" required v-model="due">
                                 </div>
                                 <div class="form-group">
                                     <label>Payer par</label>
@@ -125,10 +125,10 @@
                                                     <img :src="product.image" id="em_photo" class="card-img-top">
                                                     <div class="card-body">
                                                         <h6 class="card-title">{{ product.product_name }}</h6>
-                                                        <span v-if="product.product_quantity  >= 1 "
+                                                        <span v-if="product.product_quantity  >= 5 "
                                                               class="badge badge-success">
                                                     En stock ({{ product.product_quantity }})</span>
-                                                        <span v-else=" " class="badge badge-danger">Stock fini </span>
+                                                        <span v-else=" " class="badge badge-danger">Stock fini ({{ product.product_quantity }}) </span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -211,12 +211,12 @@ export default {
     computed: {
         filtersearch() {
             return this.products.filter(product => {
-                return product.product_name.match(this.searchTerm)
+                return product.product_name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
         },
         getfiltersearch() {
             return this.getproducts.filter(getproduct => {
-                return getproduct.product_name.match(this.getsearchTerm)
+                return getproduct.product_name.toLowerCase().match(this.getsearchTerm.toLowerCase())
             })
         },
         qty(){
