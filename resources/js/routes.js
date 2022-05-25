@@ -58,6 +58,9 @@ let vieworder = require('./components/order/vieworder.vue').default;
 let searchorder = require('./components/order/search.vue').default;
 let orderdownload = require('./components/order/order_download.vue').default;
 
+let caisse = require('./components/order/caisse.vue').default;
+let caisseView = require('./components/order/caisse_view.vue').default;
+
 export const routes = [
     { path: '/', component: login, name: '/' },
     { path: '/register', component: register, name: 'register' },
@@ -115,4 +118,7 @@ export const routes = [
     { path: '/view-order/:id', component: vieworder, name:'view-order'},
     { path: '/searchorder', component: searchorder, name:'searchorder'},
     { path: '/order-download', component: orderdownload, name:'orderdownload'},
+
+    { path: '/ticket', component: caisse, name:'caisse'},
+    { path: '/ticket-view', component: caisseView, name:'caisseView'},
 ]

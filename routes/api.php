@@ -49,6 +49,9 @@ Route::Post('/orderdone', 'Api\PosController@OrderDone');
 // Order Route
 Route::Get('/orders', 'Api\OrderController@TodayOrder');
 
+Route::Post('/order/caisse', 'Api\OrderController@AddCaisse');
+Route::Post('/order/ticket', 'Api\OrderController@Ticket');
+
 Route::Get('/order/details/{id}', 'Api\OrderController@OrderDetails');
 Route::Get('/order/orderdetails/{id}', 'Api\OrderController@OrderDetailsAll');
 

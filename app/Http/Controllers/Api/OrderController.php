@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
+use App\Model\Caisses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,6 +36,23 @@ class OrderController extends Controller
             ->select('products.product_name','products.product_code','products.image','order_details.*')
             ->get();
         return response()->json($details);
+    }
+
+    public function AddCaisse(Request $request){
+        $validateData = $request->validate([
+            'montant' => 'required|max:255',
+        ]);
+
+        $caisse = new Caisses;
+        $caisse->montant = $request->montant;
+        $caisse->caisse_code  ='tk-'.strtoupper(substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 7));
+        $caisse->save();
+    }
+
+    public function Ticket()
+    {
+        $caisses = Caisses::all();
+        return response()->json($caisses);
     }
 
 }
